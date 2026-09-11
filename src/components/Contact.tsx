@@ -42,7 +42,7 @@ export default function Contact() {
               <Phone size={14} /> +27 83 781 3835
             </a>
             <span className="lr-mono lr-contact-location">
-              <MapPin size={14} /> Guateng / Free State / wherever the work is
+              <MapPin size={14} /> Gauteng / Free State / wherever the work is
             </span>
           </div>
         </div>

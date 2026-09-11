@@ -1,4 +1,13 @@
-import { AtSign, Share2 } from "lucide-react";
+import { ArrowUp, Mail, Phone } from "lucide-react";
+
+const FOOTER_LINKS: [string, string][] = [
+  ["Approach", "#approach"],
+  ["What we do", "#what-we-do"],
+  ["Projects", "#projects"],
+  ["Why LR", "#why-lr"],
+  ["Standards", "#standards"],
+  ["Contact", "#contact"],
+];
 
 export default function Footer() {
   return (
@@ -25,20 +34,56 @@ export default function Footer() {
           <br />
           <em>purpose.</em>
         </h2>
-        <div className="lr-footer-inner">
-          <span className="lr-mono">LR / Construction &amp; Development</span>
-          <a className="lr-mono" href="mailto:projects@lrdevelopments.co.uk">
-            projects@lrdevelopments.co.uk
-          </a>
-          <div className="lr-footer-socials" aria-label="Social links">
-            <a href="https://www.linkedin.com" aria-label="LinkedIn">
-              <Share2 size={15} strokeWidth={1.8} />
+
+        <div className="lr-footer-grid">
+          <nav className="lr-footer-links" aria-label="Footer navigation">
+            <span className="lr-mono lr-footer-col-label">Menu</span>
+            {FOOTER_LINKS.map(([label, href]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="lr-footer-contact-col">
+            <span className="lr-mono lr-footer-col-label">Get in touch</span>
+            <a href="mailto:lrexpansion1@yahoo.com">
+              <Mail size={14} /> lrexpansion1@yahoo.com
             </a>
-            <a href="https://www.instagram.com" aria-label="Instagram">
-              <AtSign size={15} strokeWidth={1.8} />
+            <a href="tel:+27712832325">
+              <Phone size={14} /> +27 71 283 2325
+            </a>
+            <a href="tel:+27837813835">
+              <Phone size={14} /> +27 83 781 3835
             </a>
           </div>
-          <span className="lr-mono">© 2026</span>
+
+          <div className="lr-footer-social-col">
+            <span className="lr-mono lr-footer-col-label">Follow</span>
+            <div className="lr-footer-socials" aria-label="Social links">
+              <a href="#" aria-label="LinkedIn">
+                <span aria-hidden="true">in</span>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <span aria-hidden="true">ig</span>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <span aria-hidden="true">f</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="lr-footer-inner">
+          <span className="lr-mono">
+            LR Expansion Group / Construction &amp; Development
+          </span>
+          <span className="lr-mono">
+            © {new Date().getFullYear()} LR Expansion Group
+          </span>
+          <a className="lr-mono lr-footer-top" href="#top">
+            Back to top <ArrowUp size={13} />
+          </a>
         </div>
       </div>
     </footer>

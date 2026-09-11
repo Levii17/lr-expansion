@@ -1650,20 +1650,87 @@ a:focus-visible {
   font-style: normal;
 }
 
+.lr-footer a {
+  color: var(--lr-white);
+  text-decoration: none;
+}
+
+.lr-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  margin-top: 72px;
+  padding-bottom: 48px;
+}
+
+.lr-footer-links,
+.lr-footer-contact-col,
+.lr-footer-social-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.lr-footer-col-label {
+  color: rgba(251, 250, 246, 0.4);
+  margin-bottom: 4px;
+}
+
+.lr-footer-links a,
+.lr-footer-contact-col a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(251, 250, 246, 0.78);
+  transition: color 0.2s ease;
+}
+
+.lr-footer-links a:hover,
+.lr-footer-contact-col a:hover {
+  color: var(--lr-yellow);
+}
+
+.lr-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lr-footer-socials a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(251, 250, 246, 0.2);
+  border-radius: 50%;
+  color: rgba(251, 250, 246, 0.75);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lr-footer-socials a:hover {
+  color: var(--lr-yellow);
+  border-color: var(--lr-yellow);
+  transform: translateY(-2px);
+}
+
 .lr-footer-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 14px 30px;
   align-items: center;
-  margin: 88px -5.875vw 0;
+  margin: 0 -5.875vw 0;
   padding: 18px 3.3vw;
   border-top: 1px solid rgba(251, 250, 246, 0.12);
 }
 
-.lr-footer a {
-  color: var(--lr-white);
-  text-decoration: none;
+.lr-footer-inner > span {
+  color: rgba(251, 250, 246, 0.55);
 }
 
 .lr-footer-inner > a {
@@ -1674,25 +1741,10 @@ a:focus-visible {
   color: var(--lr-yellow);
 }
 
-.lr-footer-socials {
-  display: flex;
+.lr-footer-top {
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin-left: auto;
-}
-
-.lr-footer-socials a {
-  display: grid;
-  place-items: center;
-  color: rgba(251, 250, 246, 0.65);
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.lr-footer-socials a:hover {
-  color: var(--lr-yellow);
-  transform: translateY(-2px);
+  gap: 6px;
 }
 
 /* ---------- Responsive ---------- */
@@ -1952,8 +2004,10 @@ a:focus-visible {
   .lr-footer-heading {
     font-size: clamp(3.3rem, 14vw, 6rem);
   }
-  .lr-footer-socials {
-    margin-left: 0;
+  .lr-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 56px;
   }
 
   .lr-project-gallery {

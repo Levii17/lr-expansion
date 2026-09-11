@@ -29,7 +29,7 @@ export default function WhyLR() {
       <div className="lr-container">
         <div className="lr-why-header lr-reveal">
           <div className="lr-why-kicker lr-mono">
-            Est. 1998 — working nationwide
+            Est. 2020 — working nationwide
           </div>
           <h2 id="why-heading" className="lr-display">
             The best work is

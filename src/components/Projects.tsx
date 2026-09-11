@@ -1,55 +1,53 @@
 "use client";
 
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
 const galleryProjects = [
   {
-    name: "Harbour Quarter",
-    status: "01 / On site",
-    type: "Construction",
-    detail: "128 apartments / 2025 / Delivery underway",
-    image:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=88",
+    index: "01",
+    status: "Completed",
+    type: "Residential",
+    detail: "Finished facade and entrance, ready for handover.",
+    image: "/projects/01-facade-detail.jpg",
     className: "is-wide",
   },
   {
-    name: "Stone Gardens",
-    status: "02 / Completed",
-    type: "Development",
-    detail: "34 homes / 2023 / Turnkey delivery",
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=88",
+    index: "02",
+    status: "Nearing completion",
+    type: "Residential",
+    detail: "Final fittings and grounds going in ahead of handover.",
+    image: "/projects/02-nearing-completion.jpg",
     className: "is-tall",
   },
   {
-    name: "Northline House",
-    status: "03 / In design",
-    type: "Residential",
-    detail: "12 homes / 2026 / Planning secured",
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=88",
+    index: "03",
+    status: "On site",
+    type: "Finishes",
+    detail: "Roofing and exterior finishing work in progress.",
+    image: "/projects/03-finishing-work.jpg",
     className: "is-standard",
   },
   {
-    name: "Civic Exchange",
-    status: "04 / Delivered",
-    type: "Adaptive reuse",
-    detail: "18,400 sq ft / 2022 / BREEAM Excellent",
-    image:
-      "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1400&q=88",
+    index: "04",
+    status: "On site",
+    type: "Multi-unit build",
+    detail: "Structural and exterior work underway on a residential block.",
+    image: "/projects/04-structure-on-site.jpg",
     className: "is-wide",
   },
   {
-    name: "Moorland Works",
-    status: "05 / On site",
-    type: "Mixed use",
-    detail: "62,000 sq ft / 2025 / Delivery underway",
-    image:
-      "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1200&q=88",
+    index: "05",
+    status: "On site",
+    type: "Site standards",
+    detail: "Quality and safety, checked at every course of brick.",
+    image: "/projects/05-on-site-detail.jpg",
     className: "is-standard",
   },
 ];
+
+const foundedYear = 2020;
+const yearsActive = new Date().getFullYear() - foundedYear;
 
 export default function Projects() {
   useReveal();
@@ -77,8 +75,8 @@ export default function Projects() {
             <a
               className={`lr-project-tile ${project.className} lr-reveal delay-${(index % 3) + 1}`}
               href="#contact"
-              aria-label={`View ${project.name}`}
-              key={project.name}
+              aria-label={`Start a conversation about a project like this — ${project.type}`}
+              key={project.index}
             >
               <div
                 className="lr-project-image"
@@ -89,24 +87,21 @@ export default function Projects() {
               <ArrowUpRight className="project-arrow" size={22} />
               <div className="project-tile-copy">
                 <div className="project-card-label lr-mono">
+                  <span>{project.index}</span>
                   <span>{project.status}</span>
-                  <span>{project.type}</span>
                 </div>
-                <h3 className="lr-display">{project.name}</h3>
+                <h3 className="lr-display">{project.type}</h3>
                 <p>{project.detail}</p>
               </div>
             </a>
           ))}
           <div className="lr-project-index">
-            <span className="lr-mono">Project index</span>
-            <strong className="lr-display">26</strong>
+            <span className="lr-mono">On the ground since {foundedYear}</span>
+            <strong className="lr-display">{yearsActive}</strong>
             <p>
-              Years of construction and development expertise, applied with
-              intent.
+              Years turning briefs into finished buildings — one site at a
+              time.
             </p>
-            <button className="lr-text-action" type="button">
-              All projects <ChevronRight size={16} />
-            </button>
           </div>
         </div>
       </div>
