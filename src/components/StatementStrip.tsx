@@ -5,19 +5,22 @@ export default function StatementStrip() {
         L R
       </div>
       <div className="lr-statement-inner">
-        <h2 id="statement-heading">
-          <span>The discipline to </span>
-          <br />
-          <strong>build well.</strong>
-          <br />
-          <span>The perspective to </span>
-          <br />
-          <strong>develop better.</strong>
-        </h2>
-        <p>
-          Because the strongest result starts before a spade hits the ground. We
-          join the dots between the commercial brief and the finished address.
-        </p>
+        <div className="lr-statement-grid">
+          <h2 id="statement-heading">
+            <span>The discipline to </span>
+            <br />
+            <strong>build well.</strong>
+            <br />
+            <span>The perspective to </span>
+            <br />
+            <strong>develop better.</strong>
+          </h2>
+          <p>
+            Because the strongest result starts before a spade hits the ground.
+            We join the dots between the commercial brief and the finished
+            address.
+          </p>
+        </div>
       </div>
     </section>
   );
