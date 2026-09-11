@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Plus } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ConstructionScene from "@/components/ConstructionScene";
@@ -54,9 +53,12 @@ const phases = [
   },
 ];
 
+const stageCheckpoints = [0, 0.12, 0.34, 0.56, 0.78];
+
 export default function Approach() {
-  const [activePhase, setActivePhase] = useState(2);
+  const [activePhase, setActivePhase] = useState(0);
   const phaseCopyRef = useRef<HTMLDivElement>(null);
+  const journeyRef = useRef<HTMLDivElement>(null);
   useReveal();
 
   useEffect(() => {
@@ -73,17 +75,20 @@ export default function Approach() {
   }, [activePhase]);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!journeyRef.current) return;
     const trigger = ScrollTrigger.create({
-      trigger: "#approach",
-      start: "top 74%",
-      end: "bottom 26%",
+      trigger: journeyRef.current,
+      start: "top 82%",
+      end: "bottom 18%",
       onUpdate: (self) => {
-        const nextStage = Math.min(
-          phases.length - 1,
-          Math.floor(self.progress * phases.length),
+        const nextStage = stageCheckpoints.reduce(
+          (stage, checkpoint, index) =>
+            self.progress >= checkpoint ? index : stage,
+          0,
         );
-        setActivePhase((current) => (current === nextStage ? current : nextStage));
+        setActivePhase((current) =>
+          current === nextStage ? current : nextStage,
+        );
       },
     });
     return () => trigger.kill();
@@ -110,41 +115,26 @@ export default function Approach() {
             first feasibility through to the day a building earns its keep.
           </p>
         </div>
-        <div className="lr-phase-layout">
-          <div
-            className="lr-phase-list lr-reveal delay-1"
-            role="tablist"
-            aria-label="Project delivery stages"
-          >
-            {phases.map((item, index) => (
-              <button
-                key={item.id}
-                className={`lr-phase-button ${activePhase === index ? "is-active" : ""}`}
-                type="button"
-                role="tab"
-                aria-selected={activePhase === index}
-                onClick={() => setActivePhase(index)}
+        <div className="lr-method-journey" ref={journeyRef}>
+          <div className="lr-phase-layout">
+            <div className="lr-phase-stage">
+              <div
+                className="lr-phase-visual lr-reveal delay-2"
+                aria-live="polite"
               >
-                <span className="phase-num lr-mono">{item.number}</span>
-                <span className="phase-title">{item.title}</span>
-                {activePhase === index ? (
-                  <ArrowUpRight className="phase-icon" size={18} />
-                ) : (
-                  <Plus className="phase-icon" size={17} />
-                )}
-              </button>
-            ))}
-          </div>
-          <div className="lr-phase-visual lr-reveal delay-2" aria-live="polite">
-            <div className="phase-visual-copy" ref={phaseCopyRef}>
-              <div className="lr-kicker lr-mono">
-                <span>{phase.number}</span> / {phase.kicker}
+                <div className="phase-visual-copy" ref={phaseCopyRef}>
+                  <div className="lr-kicker lr-mono">
+                    <span>{phase.number}</span> / {phase.kicker}
+                  </div>
+                  <h3 className="lr-display">{phase.title}.</h3>
+                  <p>{phase.copy}</p>
+                </div>
+                <div className="phase-number-big lr-mono">
+                  LR / {phase.marker}
+                </div>
+                <ConstructionScene activeStage={activePhase} />
               </div>
-              <h3 className="lr-display">{phase.title}.</h3>
-              <p>{phase.copy}</p>
             </div>
-            <div className="phase-number-big lr-mono">LR / {phase.marker}</div>
-            <ConstructionScene activeStage={activePhase} />
           </div>
         </div>
       </div>

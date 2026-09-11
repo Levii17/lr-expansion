@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -239,8 +237,8 @@ function buildArchitecturalModel() {
 export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const revealStageRef = useRef<(index: number) => void>(() => undefined);
   const stageRef = useRef(activeStage);
+  const revealStageRef = useRef<(index: number) => void>(() => undefined);
 
   useEffect(() => {
     stageRef.current = activeStage;
@@ -379,7 +377,7 @@ export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
       { x: 4.6, y: 2.65, z: 9.25, ease: "none" },
       0,
     );
-    scrollTimeline?.to(model.position, { y: 0.05, ease: "none" }, 0);
+    scrollTimeline?.to(model.position, { y: 0.18, ease: "none" }, 0);
 
     let frameId = 0;
     let isVisible = true;
@@ -440,5 +438,3 @@ export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
     </div>
   );
 }
-
-export default ConstructionScene;

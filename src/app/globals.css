@@ -699,14 +699,25 @@ a:focus-visible {
 }
 
 .lr-phase-layout {
-  display: grid;
-  grid-template-columns: 0.65fr 1.35fr;
-  gap: 72px;
-  align-items: start;
+  display: block;
+  min-height: 500vh;
+}
+
+.lr-method-journey {
+  min-height: 0;
 }
 
 .lr-phase-list {
-  border-top: 1px solid var(--lr-line);
+  position: sticky;
+  top: 116px;
+  z-index: 5;
+}
+
+.lr-phase-stage {
+  position: sticky;
+  top: 96px;
+  height: calc(100vh - 132px);
+  min-height: 560px;
 }
 
 .lr-phase-button {
@@ -724,6 +735,12 @@ a:focus-visible {
     padding 0.25s ease;
 }
 
+.lr-phase-button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline-offset: -2px;
+}
+
 .lr-phase-button:hover,
 .lr-phase-button.is-active {
   color: var(--lr-black);
@@ -739,8 +756,19 @@ a:focus-visible {
 }
 
 .phase-title {
+  display: block;
   font-size: 18px;
   letter-spacing: -0.02em;
+}
+
+.phase-button-kicker {
+  display: block;
+  margin-top: 5px;
+  color: rgba(23, 24, 23, 0.42);
+  font-family: var(--font-label);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .phase-icon {
@@ -754,7 +782,8 @@ a:focus-visible {
 }
 
 .lr-phase-visual {
-  min-height: 530px;
+  height: 100%;
+  min-height: 0;
   position: relative;
   background: #2b2d2c;
   overflow: hidden;
@@ -827,6 +856,7 @@ a:focus-visible {
   top: 24px;
   left: 25px;
   z-index: 4;
+  max-width: min(50%, 350px);
 }
 
 .phase-visual-copy p {
@@ -1549,6 +1579,21 @@ a:focus-visible {
     grid-template-columns: 1fr;
     gap: 26px;
   }
+
+  .lr-method-journey {
+    min-height: 0;
+  }
+
+  .lr-phase-stage {
+    position: sticky;
+    top: 76px;
+    height: 620px;
+    min-height: 0;
+  }
+
+  .lr-phase-visual {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1586,28 +1631,16 @@ a:focus-visible {
     gap: 18px;
     flex-wrap: wrap;
   }
-  .lr-hero-meta strong {
-    font-size: 17px;
+  .phase-button-kicker {
+    margin-top: 3px;
   }
-  .lr-scroll-cue {
-    display: none;
+  .lr-phase-stage {
+    position: sticky;
+    top: 76px;
+    height: 430px;
   }
-  .lr-section,
-  .lr-why,
-  .lr-quote,
-  .lr-contact {
-    padding: 88px 0;
-  }
-  .lr-section-head {
-    display: block;
-    margin-bottom: 38px;
-  }
-  .lr-section-intro {
-    margin-top: 24px;
-  }
-  .lr-phase-visual,
-  .lr-service-detail {
-    min-height: 430px;
+  .phase-visual-copy {
+    max-width: 72%;
   }
   .lr-three-scene-legend {
     right: auto;

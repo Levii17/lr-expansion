@@ -7,9 +7,11 @@ export default function StatementStrip() {
       <div className="lr-statement-inner">
         <h2 id="statement-heading">
           <span>The discipline to </span>
+          <br />
           <strong>build well.</strong>
           <br />
           <span>The perspective to </span>
+          <br />
           <strong>develop better.</strong>
         </h2>
         <p>
