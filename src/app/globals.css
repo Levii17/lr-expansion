@@ -1476,6 +1476,7 @@ a:focus-visible {
 /* ---------- Footer ---------- */
 
 .lr-footer {
+  overflow: hidden;
   background: var(--lr-black);
   color: rgba(251, 250, 246, 0.55);
 }
@@ -1483,12 +1484,26 @@ a:focus-visible {
 .lr-footer-ticker {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 22px;
+  min-width: max-content;
   overflow: hidden;
-  white-space: nowrap;
-  padding: 16px 24px;
+  padding: 16px 0;
   border-bottom: 1px solid rgba(251, 250, 246, 0.12);
-  color: rgba(251, 250, 246, 0.42);
+  color: var(--lr-yellow);
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  animation: lr-footer-ticker 18s linear infinite;
+}
+
+.lr-footer-ticker-group {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 14px;
+  padding-right: 22px;
 }
 
 .lr-footer-ticker span {
@@ -1496,24 +1511,83 @@ a:focus-visible {
 }
 
 .lr-footer-ticker i {
-  width: 4px;
-  height: 4px;
-  border-radius: 99px;
-  background: rgba(251, 250, 246, 0.3);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lr-yellow);
+}
+
+@keyframes lr-footer-ticker {
+  to {
+    transform: translateX(-22%);
+  }
+}
+
+.lr-footer-content {
+  width: 100%;
+  max-width: none;
+  padding: 110px 8vw 0;
+}
+
+.lr-footer-heading {
+  max-width: 870px;
+  margin: 0;
+  color: var(--lr-white);
+  font-size: clamp(66px, 9.5vw, 150px);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  text-transform: uppercase;
+}
+
+.lr-footer-heading em {
+  color: var(--lr-yellow);
+  font-style: normal;
 }
 
 .lr-footer-inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px;
+  gap: 18px 30px;
   align-items: center;
-  padding: 28px 0;
+  margin: 110px -5.875vw 0;
+  padding: 21px 3.3vw;
+  border-top: 1px solid rgba(251, 250, 246, 0.12);
 }
 
 .lr-footer a {
   color: var(--lr-white);
   text-decoration: none;
+}
+
+.lr-footer-inner > a {
+  transition: color 0.2s ease;
+}
+
+.lr-footer-inner > a:hover {
+  color: var(--lr-yellow);
+}
+
+.lr-footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto;
+}
+
+.lr-footer-socials a {
+  display: grid;
+  place-items: center;
+  color: rgba(251, 250, 246, 0.65);
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lr-footer-socials a:hover {
+  color: var(--lr-yellow);
+  transform: translateY(-2px);
 }
 
 /* ---------- Responsive ---------- */
@@ -1584,6 +1658,10 @@ a:focus-visible {
     min-height: 0;
   }
 
+  .lr-phase-layout {
+    min-height: 360vh;
+  }
+
   .lr-phase-stage {
     position: sticky;
     top: 76px;
@@ -1600,26 +1678,31 @@ a:focus-visible {
   .lr-container,
   .lr-hero-inner {
     width: min(calc(100% - 34px), var(--lr-max));
+    padding-top: 88px;
+    padding-bottom: 34px;
+  }
+  .lr-hero {
+    min-height: 0;
   }
   .lr-nav-inner {
     height: 70px;
   }
   .lr-hero h1 {
-    font-size: clamp(3.8rem, 17vw, 6.2rem);
+    font-size: clamp(3.1rem, 14vw, 5rem);
   }
   .lr-hero-copy {
     font-size: 14px;
   }
   .lr-statement,
   .lr-statement-inner {
-    min-height: 300px;
+    min-height: 252px;
   }
   .lr-statement-inner {
     width: min(calc(100% - 34px), var(--lr-max));
-    padding: 52px 0 32px;
+    padding: 34px 0 27px;
   }
   .lr-statement h2 {
-    font-size: clamp(1.55rem, 7.8vw, 2.6rem);
+    font-size: clamp(1.35rem, 6.8vw, 2.25rem);
   }
   .lr-statement p {
     width: min(100%, 290px);
@@ -1637,10 +1720,35 @@ a:focus-visible {
   .lr-phase-stage {
     position: sticky;
     top: 76px;
-    height: 430px;
+    height: min(460px, calc(100dvh - 96px));
+  }
+  .lr-phase-layout {
+    min-height: 300vh;
+  }
+  .lr-phase-visual {
+    min-height: 0;
   }
   .phase-visual-copy {
-    max-width: 72%;
+    top: 18px;
+    left: 18px;
+    max-width: calc(100% - 36px);
+  }
+  .phase-visual-copy h3 {
+    margin-top: 12px;
+    font-size: clamp(2.8rem, 14vw, 4.8rem);
+  }
+  .phase-visual-copy p {
+    max-width: 285px;
+    margin: 12px 0 0;
+    font-size: 13px;
+  }
+  .phase-number-big {
+    top: auto;
+    right: 18px;
+    bottom: 18px;
+    max-width: 42%;
+    text-align: right;
+    line-height: 1.5;
   }
   .lr-three-scene-legend {
     right: auto;
@@ -1672,6 +1780,16 @@ a:focus-visible {
   .lr-footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+  .lr-footer-content {
+    min-height: 430px;
+    padding-top: 64px;
+  }
+  .lr-footer-heading {
+    font-size: clamp(3.3rem, 14vw, 6rem);
+  }
+  .lr-footer-socials {
+    margin-left: 0;
   }
 }
 
