@@ -30,18 +30,21 @@ export default function Standards() {
   useReveal();
 
   return (
-    <section className="lr-standards" id="standards" aria-labelledby="standards-heading">
+    <section
+      className="lr-standards"
+      id="standards"
+      aria-labelledby="standards-heading"
+    >
       <div className="lr-container">
         <div className="lr-section-head lr-reveal">
           <div>
-            <div className="lr-eyebrow lr-mono">05 / The standard</div>
             <h2 id="standards-heading" className="lr-display">
               Good work is <span className="lr-yellow">felt.</span>
             </h2>
           </div>
           <p className="lr-section-intro">
-            In the quiet handover. In a site that runs safely. In the
-            numbers landing where they should.
+            In the quiet handover. In a site that runs safely. In the numbers
+            landing where they should.
           </p>
         </div>
         <div className="lr-standard-grid">

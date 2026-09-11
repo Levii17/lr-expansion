@@ -16,37 +16,50 @@ export default function Contact() {
   };
 
   return (
-    <section className="lr-contact" id="contact" aria-labelledby="contact-heading">
+    <section
+      className="lr-contact"
+      id="contact"
+      aria-labelledby="contact-heading"
+    >
       <div className="lr-container lr-contact-grid">
         <div className="lr-reveal">
-          <div className="lr-eyebrow lr-mono">06 / The next move</div>
           <h2 id="contact-heading" className="lr-display">
             From development <span className="lr-yellow">to delivery.</span>
           </h2>
           <p className="lr-contact-copy">
-            Tell us what you are building, where it is and what has to be
-            true for the project to work. We will come back with the useful
+            Tell us what you are building, where it is and what has to be true
+            for the project to work. We will come back with the useful
             questions.
           </p>
           <div className="lr-contact-list">
-            <a href="mailto:hello@lrdevelopments.co.uk">
-              <Mail size={14} /> hello@lrdevelopments.co.uk
+            <a href="mailto:lrexpansion1@yahoo.com">
+              <Mail size={14} /> lrexpansion1@yahoo.com
             </a>
-            <a href="tel:+441132450180">
-              <Phone size={14} /> +44 (0)113 245 0180
+            <a href="tel:+27712832325">
+              <Phone size={14} /> +27 71 283 2325
             </a>
             <span className="lr-mono lr-contact-location">
-              <MapPin size={14} /> Leeds / London / wherever the work is
+              <MapPin size={14} /> Guateng / Free State / wherever the work is
             </span>
           </div>
         </div>
-        <form className="lr-contact-form lr-reveal delay-1" ref={formRef} onSubmit={handleSubmit}>
+        <form
+          className="lr-contact-form lr-reveal delay-1"
+          ref={formRef}
+          onSubmit={handleSubmit}
+        >
           <div className="lr-field">
             <input id="name" name="name" type="text" placeholder=" " required />
             <label htmlFor="name">Your name</label>
           </div>
           <div className="lr-field">
-            <input id="email" name="email" type="email" placeholder=" " required />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder=" "
+              required
+            />
             <label htmlFor="email">Email address</label>
           </div>
           <div className="lr-field">
@@ -54,7 +67,13 @@ export default function Contact() {
             <label htmlFor="project">Project / location</label>
           </div>
           <div className="lr-field">
-            <textarea id="message" name="message" rows={3} placeholder=" " required />
+            <textarea
+              id="message"
+              name="message"
+              rows={3}
+              placeholder=" "
+              required
+            />
             <label htmlFor="message">A few useful details</label>
           </div>
           <div className="lr-form-bottom">

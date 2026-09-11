@@ -14,41 +14,41 @@ const phases = [
   {
     id: "plan",
     number: "01",
-    title: "Plan",
-    kicker: "The first line",
-    copy: "A clear brief, a workable budget and an honest view of the ground. We make the first decision the right one.",
+    title: "Feasibility",
+    kicker: "Reduce risk before cost",
+    copy: "We establish the brief, budget and site realities early, so the project starts with evidence instead of assumptions.",
     marker: "BRIEF / SITE / FEASIBILITY",
   },
   {
     id: "develop",
     number: "02",
-    title: "Develop",
-    kicker: "Make it real",
-    copy: "We turn intent into a coordinated programme — resolving design, approvals and procurement before they become surprises.",
+    title: "Design & approvals",
+    kicker: "Align the decisions",
+    copy: "We turn intent into a coordinated plan, resolving design, approvals and procurement before they become surprises on site.",
     marker: "DESIGN / COST / PROGRAMME",
   },
   {
     id: "build",
     number: "03",
-    title: "Build",
-    kicker: "The work, visible",
-    copy: "Our site teams bring precision to the physical work. Safe, methodical and accountable from groundworks to final fix.",
+    title: "Site delivery",
+    kicker: "Build with control",
+    copy: "Our teams deliver the work with discipline, safety and accountability, keeping quality, programme and budget in step.",
     marker: "GROUNDWORKS / STRUCTURE / ENVELOPE",
   },
   {
     id: "finish",
     number: "04",
-    title: "Finish",
-    kicker: "The last 10%",
-    copy: "The detail is the difference. We close every loop, test every system and make the handover feel considered.",
+    title: "Close-out",
+    kicker: "Detail that performs",
+    copy: "We test every system, close every detail and finish the building with care so the handover feels considered and complete.",
     marker: "INTERIORS / TESTING / SNAGGING",
   },
   {
     id: "deliver",
     number: "05",
-    title: "Deliver",
-    kicker: "Built to perform",
-    copy: "A completed development is more than a finished building. It is a reliable asset ready for the people who will use it.",
+    title: "Handover",
+    kicker: "Ready for use",
+    copy: "A completed development is more than a finished building. It is a reliable asset ready for the people and operations that will use it.",
     marker: "HANDOVER / AFTERCARE / IN USE",
   },
 ];
@@ -105,14 +105,13 @@ export default function Approach() {
       <div className="lr-container">
         <div className="lr-section-head lr-reveal">
           <div>
-            <div className="lr-eyebrow lr-mono">01 / The method</div>
             <h2 id="approach-heading" className="lr-display">
               A project is a <span className="lr-yellow">sequence.</span>
             </h2>
           </div>
           <p className="lr-section-intro">
-            No hand-offs into the unknown. Our team carries the intent from
-            first feasibility through to the day a building earns its keep.
+            The right sequence reduces risk. We carry the intent from first
+            feasibility through to the day a building earns its keep.
           </p>
         </div>
         <div className="lr-method-journey" ref={journeyRef}>
@@ -123,7 +122,7 @@ export default function Approach() {
                 aria-live="polite"
               >
                 <div className="phase-visual-copy" ref={phaseCopyRef}>
-                  <div className="lr-kicker lr-mono">
+                  <div className="lr-kicker lr-yellow">
                     <span>{phase.number}</span> / {phase.kicker}
                   </div>
                   <h3 className="lr-display">{phase.title}.</h3>

@@ -8,30 +8,30 @@ const services = [
   {
     key: "construction",
     index: "01",
-    title: "Construction",
-    copy: "General building, civil works, renovations and delivery discipline.",
-    tags: ["GENERAL BUILDING", "CIVIL WORKS", "RENOVATIONS"],
+    title: "Construction delivery",
+    copy: "Site delivery, refurbishment and civil works with quality, safety and programme kept under control.",
+    tags: ["PROJECT DELIVERY", "CIVIL WORKS", "REFURBISHMENT"],
   },
   {
     key: "development",
     index: "02",
-    title: "Property development",
-    copy: "From opportunity and feasibility through to completed property.",
-    tags: ["SITE APPRAISAL", "PLANNING", "DELIVERY"],
+    title: "Development strategy",
+    copy: "From site appraisal and option testing to a viable route to value, with the commercial case built in from the start.",
+    tags: ["SITE APPRAISAL", "FEASIBILITY", "PLANNING"],
   },
   {
     key: "turnkey",
     index: "03",
-    title: "Turnkey solutions",
-    copy: "One accountable route from brief to handover, designed around clarity.",
+    title: "Single-point delivery",
+    copy: "One accountable route from brief to handover — aligning design, procurement and execution without the gaps.",
     tags: ["ONE TEAM", "ONE PROGRAMME", "ONE HANDOVER"],
   },
   {
     key: "transformation",
     index: "04",
-    title: "Property transformation",
-    copy: "Targeted interventions that give existing assets a renewed purpose.",
-    tags: ["REPOSITION", "RENEW", "REPERFORM"],
+    title: "Asset repositioning",
+    copy: "Targeted upgrades and reconfiguration that give existing buildings new purpose, stronger performance and renewed appeal.",
+    tags: ["REPOSITION", "RETROFIT", "REVALUE"],
   },
 ];
 
@@ -49,14 +49,13 @@ export default function WhatWeDo() {
       <div className="lr-container">
         <div className="lr-section-head lr-reveal">
           <div>
-            <div className="lr-eyebrow lr-mono">02 / What we do</div>
             <h2 id="services-heading" className="lr-display">
               One partner. <span className="lr-yellow">Every stage.</span>
             </h2>
           </div>
           <p className="lr-section-intro">
-            Four capabilities, one accountable team — from the first site
-            appraisal to the finished, performing asset.
+            Four capabilities, one accountable team. From first appraisal to a
+            finished asset that performs on day one.
           </p>
         </div>
         <div className="lr-services-layout">

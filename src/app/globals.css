@@ -158,7 +158,7 @@ a:focus-visible {
 .lr-nav-inner {
   position: relative;
   z-index: 31;
-  height: 78px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -190,7 +190,7 @@ a:focus-visible {
   padding-left: 13px;
   font-weight: 700;
   letter-spacing: 0.13em;
-  font-size: 14px;
+  font-size: 13px;
   text-transform: uppercase;
 }
 
@@ -206,7 +206,7 @@ a:focus-visible {
 
 .lr-nav-links {
   display: flex;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -251,7 +251,7 @@ a:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 12px 14px;
+  padding: 11px 13px;
   background: var(--lr-yellow);
   color: var(--lr-black);
   font-family: var(--font-label);
@@ -295,7 +295,7 @@ a:focus-visible {
 /* ---------- Hero ---------- */
 
 .lr-hero {
-  min-height: max(720px, 100dvh);
+  min-height: max(680px, 100dvh);
   background: var(--lr-black);
   color: var(--lr-white);
   position: relative;
@@ -308,6 +308,7 @@ a:focus-visible {
   position: absolute;
   inset: 0;
   background-image: url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2200&q=88");
+  /* background-image: url("/00.hero1.png"); */
   background-position: center;
   background-size: cover;
   filter: saturate(0.82) contrast(1.04);
@@ -345,17 +346,17 @@ a:focus-visible {
   width: 100%;
   max-width: none;
   margin: 0 auto;
-  padding: 0 8vw 8.5vh;
+  padding: 0 8vw 7vh;
 }
 
 .lr-hero-copy-block {
   max-width: 920px;
-  transform: translateY(-100px);
+  transform: translateY(-78px);
 }
 
 .lr-hero h1 {
-  font-size: clamp(4.5rem, 9.5vw, 10rem);
-  line-height: 0.84;
+  font-size: clamp(4.2rem, 8.8vw, 9.2rem);
+  line-height: 0.87;
   margin: 0;
   text-transform: uppercase;
 }
@@ -370,7 +371,7 @@ a:focus-visible {
   align-items: center;
   gap: 18px;
   flex-wrap: wrap;
-  margin-top: 26px;
+  margin-top: 22px;
   color: var(--lr-white);
   font-size: 12px;
   letter-spacing: 0.1em;
@@ -428,7 +429,7 @@ a:focus-visible {
 
 .lr-statement {
   position: relative;
-  min-height: 390px;
+  min-height: 340px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -440,15 +441,15 @@ a:focus-visible {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 48px), var(--lr-max));
-  min-height: 390px;
+  min-height: 340px;
   margin: 0 auto;
-  padding: 72px 0 48px;
+  padding: 58px 0 42px;
 }
 
 .lr-statement-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.7fr);
-  gap: clamp(32px, 7vw, 110px);
+  gap: clamp(28px, 5vw, 76px);
   align-items: end;
 }
 
@@ -456,7 +457,7 @@ a:focus-visible {
   max-width: 1120px;
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5.4vw, 5.8rem);
+  font-size: clamp(2rem, 4.9vw, 5.2rem);
   font-weight: 700;
   line-height: 0.94;
   letter-spacing: -0.035em;
@@ -470,13 +471,13 @@ a:focus-visible {
 
 .lr-statement p {
   width: auto;
-  max-width: 390px;
+  max-width: 350px;
   margin: 0 0 8px;
   padding-left: 24px;
   border-left: 2px solid rgba(16, 18, 17, 0.68);
   color: rgba(16, 18, 17, 0.9);
   font-family: var(--font-body);
-  font-size: clamp(16px, 1.25vw, 20px);
+  font-size: clamp(15px, 1.1vw, 18px);
   font-weight: 500;
   letter-spacing: 0.005em;
   line-height: 1.55;
@@ -489,7 +490,7 @@ a:focus-visible {
   right: auto;
   color: rgba(16, 18, 17, 0.11);
   font-family: var(--font-display);
-  font-size: clamp(16rem, 30vw, 32rem);
+  font-size: clamp(14rem, 27vw, 28rem);
   line-height: 0.8;
   letter-spacing: -0.12em;
   user-select: none;
@@ -691,15 +692,15 @@ a:focus-visible {
 /* ---------- Shared section head ---------- */
 
 .lr-section {
-  padding: 130px 0;
+  padding: 96px 0;
 }
 
 .lr-section-head {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 30px;
-  margin-bottom: 62px;
+  gap: 24px;
+  margin-bottom: 22px;
 }
 
 .lr-eyebrow {
@@ -719,6 +720,7 @@ a:focus-visible {
   color: var(--lr-steel);
   line-height: 1.6;
   font-size: 14px;
+  margin-bottom: 0;
 }
 
 /* ---------- Approach ---------- */
@@ -882,23 +884,25 @@ a:focus-visible {
 
 .phase-visual-copy {
   position: absolute;
-  top: 24px;
-  left: 25px;
+  top: 26px;
+  left: 28px;
   z-index: 4;
-  max-width: min(50%, 350px);
+  max-width: min(48%, 360px);
 }
 
 .phase-visual-copy p {
-  max-width: 285px;
+  max-width: 300px;
   line-height: 1.6;
-  color: rgba(251, 250, 246, 0.6);
+  color: rgba(251, 250, 246, 0.72);
   font-size: 14px;
+  margin: 16px 0 0;
 }
 
 .phase-visual-copy h3 {
-  font-size: clamp(2.6rem, 6vw, 5.5rem);
-  margin: 20px 0 0;
-  line-height: 0.83;
+  font-size: clamp(2.4rem, 5vw, 5.1rem);
+  margin: 18px 0 0;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
   color: var(--lr-white);
 }
 
@@ -908,7 +912,8 @@ a:focus-visible {
   top: 22px;
   z-index: 4;
   color: var(--lr-yellow);
-  font-size: 13px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
 }
 
 /* ---------- What we do ---------- */
@@ -954,12 +959,12 @@ a:focus-visible {
 }
 
 .lr-service-detail {
-  min-height: 480px;
+  min-height: 500px;
   position: relative;
   background: var(--lr-black);
   color: var(--lr-white);
   overflow: hidden;
-  padding: 25px;
+  padding: 24px 24px 26px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -977,7 +982,7 @@ a:focus-visible {
 
 .lr-service-graphic {
   position: absolute;
-  inset: 20% 8% 40%;
+  inset: 18% 8% 40%;
   pointer-events: none;
 }
 
@@ -1019,9 +1024,9 @@ a:focus-visible {
 .lr-service-detail p {
   position: relative;
   z-index: 2;
-  max-width: 420px;
+  max-width: 440px;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: rgba(251, 250, 246, 0.78);
   margin: 0 0 18px;
 }
@@ -1038,6 +1043,8 @@ a:focus-visible {
   border: 1px solid rgba(251, 250, 246, 0.28);
   padding: 7px 11px;
   color: rgba(251, 250, 246, 0.72);
+  font-size: 10px;
+  letter-spacing: 0.08em;
 }
 
 /* ---------- Projects ---------- */
@@ -1164,6 +1171,7 @@ a:focus-visible {
   justify-content: space-between;
   color: var(--lr-yellow);
   margin-bottom: 10px;
+  gap: 12px;
 }
 
 .project-card-label .lr-mono {
@@ -1176,6 +1184,7 @@ a:focus-visible {
   line-height: 0.9;
   max-width: 600px;
   margin: 0;
+  letter-spacing: -0.04em;
 }
 
 .lr-project-card p {
@@ -1183,6 +1192,7 @@ a:focus-visible {
   margin: 12px 0 0;
   color: rgba(251, 250, 246, 0.68);
   font-size: 13px;
+  line-height: 1.5;
 }
 
 .lr-project-card .project-arrow {
@@ -1224,28 +1234,26 @@ a:focus-visible {
 .lr-why {
   background: var(--lr-ink);
   color: var(--lr-white);
-  padding: 130px 0;
+  padding: 90px 0 110px;
   position: relative;
   overflow: hidden;
 }
 
-.lr-why-topline {
+.lr-why-header {
   display: flex;
-  justify-content: space-between;
-  color: rgba(251, 250, 246, 0.5);
-  margin-bottom: 70px;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
 }
 
-.lr-why-topline span:first-child {
-  color: var(--lr-yellow);
+.lr-why-kicker {
+  color: rgba(251, 250, 246, 0.7);
 }
 
 .lr-why-content {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: end;
-  padding-bottom: 70px;
+  grid-template-columns: 1fr;
+  padding-bottom: 32px;
   border-bottom: 1px solid rgba(251, 250, 246, 0.18);
 }
 
@@ -1253,6 +1261,7 @@ a:focus-visible {
   font-size: clamp(3.2rem, 7vw, 6.4rem);
   line-height: 0.86;
   margin: 0;
+  max-width: 760px;
 }
 
 .lr-why h2 em {
@@ -1260,11 +1269,14 @@ a:focus-visible {
   font-style: normal;
 }
 
+.lr-why-copy {
+  max-width: 460px;
+}
+
 .lr-why-copy p {
-  color: rgba(251, 250, 246, 0.62);
+  color: rgba(251, 250, 246, 0.7);
   line-height: 1.65;
   font-size: 15px;
-  max-width: 420px;
   margin: 0 0 22px;
 }
 
@@ -1280,13 +1292,14 @@ a:focus-visible {
 
 .lr-principles {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0 40px;
-  margin-top: 60px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  margin-top: 28px;
 }
 
 .lr-principle {
-  padding-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(251, 250, 246, 0.14);
 }
 
 .lr-principle span {
@@ -1294,13 +1307,14 @@ a:focus-visible {
 }
 
 .lr-principle h3 {
-  font-size: 20px;
+  font-size: 1.35rem;
   font-weight: 500;
-  margin: 14px 0 9px;
+  margin: 14px 0 10px;
+  letter-spacing: -0.03em;
 }
 
 .lr-principle p {
-  color: rgba(251, 250, 246, 0.58);
+  color: rgba(251, 250, 246, 0.62);
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
@@ -1310,22 +1324,25 @@ a:focus-visible {
 
 .lr-standards {
   background: var(--lr-concrete);
-  padding: 110px 0;
+  padding: 90px 0 110px;
 }
 
 .lr-standard-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 80px;
-  margin-top: 62px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
 }
 
 .lr-standard {
   display: grid;
-  grid-template-columns: 46px 1fr;
-  gap: 22px;
-  border-top: 1px solid rgba(23, 24, 23, 0.3);
-  padding: 23px 0 30px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  border: 1px solid rgba(23, 24, 23, 0.18);
+  background: rgba(16, 18, 17, 0.02);
+  padding: 18px 18px 20px;
+  min-height: 172px;
 }
 
 .lr-standard svg {
@@ -1334,16 +1351,18 @@ a:focus-visible {
   padding: 8px;
   width: 38px;
   height: 38px;
+  flex-shrink: 0;
 }
 
 .lr-standard h3 {
-  font-size: 20px;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
   font-weight: 500;
-  margin: 0 0 9px;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
 }
 
 .lr-standard p {
-  color: rgba(23, 24, 23, 0.64);
+  color: rgba(23, 24, 23, 0.68);
   font-size: 14px;
   line-height: 1.6;
   margin: 0;
@@ -1355,58 +1374,63 @@ a:focus-visible {
 .lr-quote {
   background: var(--lr-black);
   color: var(--lr-white);
-  padding: 140px 0;
+  padding: 112px 0 124px;
 }
 
 .lr-quote-grid {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 80px;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 64px;
 }
 
 .lr-quote-mark {
   color: var(--lr-yellow);
   font-family: var(--font-display);
-  font-size: 8rem;
-  line-height: 0.4;
+  font-size: 6.5rem;
+  line-height: 0.5;
 }
 
 .lr-quote-source {
   color: rgba(251, 250, 246, 0.5);
-  margin-top: 30px;
+  margin-top: 24px;
+  max-width: 180px;
+  line-height: 1.5;
 }
 
 .lr-quote blockquote {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.5vw, 6.7rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.8rem, 5vw, 5.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
   max-width: 850px;
 }
 
 .lr-quote figcaption {
   color: rgba(251, 250, 246, 0.55);
   font-size: 13px;
-  margin-top: 36px;
+  line-height: 1.6;
+  margin: 28px 0 0;
+  max-width: 390px;
 }
 
 /* ---------- Contact ---------- */
 
 .lr-contact {
   background: var(--lr-paper);
-  padding: 130px 0 110px;
+  padding: 104px 0 96px;
 }
 
 .lr-contact-grid {
   display: grid;
-  grid-template-columns: 1fr 0.9fr;
-  gap: 100px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
 }
 
 .lr-contact h2 {
-  font-size: clamp(3.4rem, 8vw, 8.8rem);
-  line-height: 0.82;
+  max-width: 700px;
+  font-size: clamp(3.4rem, 7vw, 7.6rem);
+  line-height: 0.86;
   margin: 0;
 }
 
@@ -1414,7 +1438,7 @@ a:focus-visible {
   max-width: 390px;
   color: var(--lr-steel);
   line-height: 1.6;
-  margin: 28px 0;
+  margin: 24px 0 30px;
 }
 
 .lr-contact-list {
@@ -1442,7 +1466,7 @@ a:focus-visible {
 }
 
 .lr-contact-form {
-  border-top: 1px solid var(--lr-line);
+  border-top: 2px solid var(--lr-black);
 }
 
 .lr-field {
@@ -1453,7 +1477,7 @@ a:focus-visible {
 .lr-field label {
   position: absolute;
   left: 0;
-  top: 20px;
+  top: 18px;
   color: var(--lr-steel);
   font-family: var(--font-label);
   text-transform: uppercase;
@@ -1471,7 +1495,7 @@ a:focus-visible {
   border: 0;
   outline: 0;
   background: transparent;
-  padding: 35px 0 15px;
+  padding: 33px 0 14px;
   color: var(--lr-black);
   font-size: 16px;
   resize: vertical;
@@ -1491,7 +1515,7 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .lr-form-success {
@@ -1516,11 +1540,11 @@ a:focus-visible {
   gap: 22px;
   min-width: max-content;
   overflow: hidden;
-  padding: 16px 0;
+  padding: 13px 0;
   border-bottom: 1px solid rgba(251, 250, 246, 0.12);
   color: var(--lr-yellow);
   font-family: var(--font-display);
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -1555,18 +1579,18 @@ a:focus-visible {
 .lr-footer-content {
   width: 100%;
   max-width: none;
-  padding: 110px 8vw 0;
+  padding: 92px 8vw 0;
 }
 
 .lr-footer-heading {
-  max-width: 870px;
+  max-width: 800px;
   margin: 0;
   color: var(--lr-white);
   font-family: var(--font-display);
-  font-size: clamp(66px, 9.5vw, 150px);
+  font-size: clamp(60px, 8.8vw, 138px);
   font-weight: 700;
   letter-spacing: -0.055em;
-  line-height: 0.86;
+  line-height: 0.88;
   text-transform: uppercase;
 }
 
@@ -1579,10 +1603,10 @@ a:focus-visible {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 18px 30px;
+  gap: 14px 30px;
   align-items: center;
-  margin: 110px -5.875vw 0;
-  padding: 21px 3.3vw;
+  margin: 88px -5.875vw 0;
+  padding: 18px 3.3vw;
   border-top: 1px solid rgba(251, 250, 246, 0.12);
 }
 
@@ -1785,6 +1809,15 @@ a:focus-visible {
     gap: 18px;
     flex-wrap: wrap;
   }
+  .lr-section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .lr-section-intro {
+    max-width: 100%;
+  }
   .phase-button-kicker {
     margin-top: 3px;
   }
@@ -1802,15 +1835,17 @@ a:focus-visible {
   .phase-visual-copy {
     top: 18px;
     left: 18px;
+    right: 18px;
     max-width: calc(100% - 36px);
   }
   .phase-visual-copy h3 {
-    margin-top: 12px;
-    font-size: clamp(2.8rem, 14vw, 4.8rem);
+    margin-top: 10px;
+    font-size: clamp(2.3rem, 12vw, 4.2rem);
+    line-height: 0.86;
   }
   .phase-visual-copy p {
-    max-width: 285px;
-    margin: 12px 0 0;
+    max-width: 260px;
+    margin: 10px 0 0;
     font-size: 13px;
   }
   .phase-number-big {
