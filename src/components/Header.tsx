@@ -29,10 +29,10 @@ export default function Header() {
     <header className={`lr-nav ${scrolled ? "is-scrolled" : ""}`}>
       <div className="lr-container lr-nav-inner">
         <a className="lr-logo" href="#top" onClick={closeMenu}>
-          <span className="lr-mark" aria-hidden="true">
+          {/* <span className="lr-mark" aria-hidden="true">
             LR
-          </span>
-          <span className="lr-logo-word">LR / DEVELOPMENTS</span>
+          </span> */}
+          <span className="lr-logo-word">LR Expansion</span>
         </a>
         <nav className="lr-nav-links" aria-label="Primary navigation">
           {LINKS.map(([label, href]) => (
