@@ -1587,8 +1587,8 @@ a:focus-visible {
 
 .lr-footer {
   overflow: hidden;
-  background: var(--lr-black);
-  color: rgba(251, 250, 246, 0.55);
+  background: var(--lr-ink);
+  color: rgba(251, 250, 246, 0.62);
 }
 
 .lr-footer-ticker {
@@ -1598,7 +1598,6 @@ a:focus-visible {
   min-width: max-content;
   overflow: hidden;
   padding: 13px 0;
-  border-bottom: 1px solid rgba(251, 250, 246, 0.12);
   color: var(--lr-yellow);
   font-family: var(--font-display);
   font-size: 16px;
@@ -1634,19 +1633,20 @@ a:focus-visible {
 }
 
 .lr-footer-content {
+  border-top: 1px solid rgba(251, 250, 246, 0.12);
   width: 100%;
   max-width: none;
-  padding: 92px 8vw 0;
+  padding: 72px 8vw 0;
 }
 
 .lr-footer-heading {
   margin: 0;
   color: var(--lr-white);
   font-family: var(--font-display);
-  font-size: clamp(15px, 2vw, 28px);
+  font-size: clamp(2.4rem, 4.2vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.05;
+  line-height: 0.9;
   text-transform: uppercase;
 }
 
@@ -1662,9 +1662,11 @@ a:focus-visible {
 
 .lr-footer-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding-bottom: 48px;
+  grid-template-columns:
+    minmax(0, 1.5fr) minmax(110px, 0.8fr) minmax(0, 1.25fr)
+    minmax(70px, 0.65fr);
+  gap: 32px;
+  padding-bottom: 36px;
 }
 
 .lr-footer-heading-col,
@@ -1673,7 +1675,7 @@ a:focus-visible {
 .lr-footer-social-col {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 9px;
   align-items: flex-start;
   min-width: 0;
 }
@@ -1731,8 +1733,8 @@ a:focus-visible {
   justify-content: space-between;
   gap: 14px 30px;
   align-items: center;
-  margin: 0 -5.875vw 0;
-  padding: 18px 3.3vw;
+  margin: 0 -8vw;
+  padding: 16px 8vw;
   border-top: 1px solid rgba(251, 250, 246, 0.12);
 }
 
@@ -2004,12 +2006,17 @@ a:focus-visible {
     padding-right: 5vw;
   }
   .lr-footer-heading {
-    font-size: clamp(11px, 3.6vw, 14px);
+    font-size: clamp(1.8rem, 8vw, 3rem);
+    line-height: 0.9;
     letter-spacing: -0.01em;
   }
   .lr-footer-grid {
-    gap: 10px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 28px 18px;
     padding-bottom: 32px;
+  }
+  .lr-footer-heading-col {
+    grid-column: 1 / -1;
   }
   .lr-footer-col-label {
     font-size: 0.55rem;

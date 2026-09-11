@@ -78,10 +78,12 @@ export default function Footer() {
 
         <div className="lr-footer-inner">
           <span className="lr-mono">
-            LR Expansion Group / Construction &amp; Development
+            © {new Date().getFullYear()} LR Expansion Group
           </span>
           <span className="lr-mono">
-            © {new Date().getFullYear()} LR Expansion Group
+            Build by <a href="https://mxolisi.is-a.dev/" target="_blank" rel="noopener noreferrer">
+              mxolisi
+            </a>
           </span>
           <a className="lr-mono lr-footer-top" href="#top">
             Back to top <ArrowUp size={13} />
