@@ -27,15 +27,17 @@ export default function Footer() {
         ))}
       </div>
       <div className="lr-container lr-footer-content">
-        <h2 className="lr-footer-heading">
-          Let&apos;s build
-          <br />
-          something <em>with</em>
-          <br />
-          <em>purpose.</em>
-        </h2>
-
         <div className="lr-footer-grid">
+          <div className="lr-footer-heading-col">
+            <h2 className="lr-footer-heading">
+              Let&apos;s build
+              <br />
+              something <em>with</em>
+              <br />
+              <em>purpose.</em>
+            </h2>
+          </div>
+
           <nav className="lr-footer-links" aria-label="Footer navigation">
             <span className="lr-mono lr-footer-col-label">Menu</span>
             {FOOTER_LINKS.map(([label, href]) => (
