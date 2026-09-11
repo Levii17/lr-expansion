@@ -38,6 +38,9 @@ export default function Contact() {
             <a href="tel:+27712832325">
               <Phone size={14} /> +27 71 283 2325
             </a>
+            <a href="tel:+27837813835">
+              <Phone size={14} /> +27 83 781 3835
+            </a>
             <span className="lr-mono lr-contact-location">
               <MapPin size={14} /> Guateng / Free State / wherever the work is
             </span>
