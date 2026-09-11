@@ -97,7 +97,9 @@ a:focus-visible {
   letter-spacing: 0.1em;
   border-bottom: 1px solid var(--lr-line);
   padding-bottom: 3px;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .lr-text-action:hover {
@@ -108,7 +110,9 @@ a:focus-visible {
 .lr-reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .lr-reveal.is-visible {
@@ -138,7 +142,10 @@ a:focus-visible {
   width: 100%;
   padding: 0;
   color: var(--lr-white);
-  transition: background 0.3s ease, color 0.3s ease, padding 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    padding 0.3s ease;
 }
 
 .lr-nav.is-scrolled {
@@ -211,7 +218,9 @@ a:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.11em;
   font-weight: 700;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .lr-nav-cta:hover {
@@ -259,7 +268,11 @@ a:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 72% 50%, rgba(245, 200, 66, 0.11), transparent 28%);
+  background: radial-gradient(
+    circle at 72% 50%,
+    rgba(245, 200, 66, 0.11),
+    transparent 28%
+  );
 }
 
 .lr-hero-inner {
@@ -332,7 +345,9 @@ a:focus-visible {
   letter-spacing: 0.12em;
   font-size: 11px;
   font-weight: 700;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .lr-button:hover {
@@ -351,7 +366,9 @@ a:focus-visible {
   font-size: 11px;
   padding: 13px 0;
   border-bottom: 1px solid rgba(251, 250, 246, 0.4);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .lr-button-ghost:hover {
@@ -399,6 +416,68 @@ a:focus-visible {
   background: var(--lr-yellow);
 }
 
+/* ---------- Statement strip ---------- */
+
+.lr-statement {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: #ffcc00;
+  color: #101211;
+}
+
+.lr-statement-inner {
+  position: relative;
+  z-index: 1;
+  width: min(calc(100% - 48px), var(--lr-max));
+  min-height: 340px;
+  margin: 0 auto;
+  padding: 54px 0 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lr-statement h2 {
+  max-width: 1120px;
+  margin: 0;
+  font-family: "Arial Narrow", "Roboto Condensed", var(--font-body), sans-serif;
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.lr-statement h2 strong {
+  color: #fffdf5;
+  font-weight: inherit;
+}
+
+.lr-statement p {
+  align-self: flex-end;
+  width: min(100%, 320px);
+  margin: 36px 7.2% 0 0;
+  padding-left: 20px;
+  border-left: 1px solid rgba(23, 24, 23, 0.58);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.lr-statement-watermark {
+  position: absolute;
+  top: -0.22em;
+  right: -0.02em;
+  color: rgba(23, 24, 23, 0.08);
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 28vw, 30rem);
+  line-height: 0.8;
+  letter-spacing: -0.12em;
+  user-select: none;
+}
+
 .lr-scene-wrap {
   position: relative;
   min-height: 510px;
@@ -419,7 +498,11 @@ a:focus-visible {
   aspect-ratio: 1 / 1.05;
   border: 1px solid rgba(251, 250, 246, 0.17);
   overflow: hidden;
-  background: linear-gradient(145deg, rgba(101, 112, 115, 0.15), transparent 65%);
+  background: linear-gradient(
+    145deg,
+    rgba(101, 112, 115, 0.15),
+    transparent 65%
+  );
 }
 
 .lr-scene::before,
@@ -463,7 +546,11 @@ a:focus-visible {
   width: 63%;
   height: 58%;
   border: 1px solid rgba(251, 250, 246, 0.75);
-  background: linear-gradient(90deg, rgba(101, 112, 115, 0.17), rgba(251, 250, 246, 0.06));
+  background: linear-gradient(
+    90deg,
+    rgba(101, 112, 115, 0.17),
+    rgba(251, 250, 246, 0.06)
+  );
   transform: skewY(-7deg);
   transform-origin: bottom;
 }
@@ -487,7 +574,9 @@ a:focus-visible {
   bottom: 0;
   left: 34%;
   border-left: 1px solid rgba(251, 250, 246, 0.44);
-  box-shadow: 92px 0 rgba(251, 250, 246, 0.36), 184px 0 rgba(251, 250, 246, 0.22);
+  box-shadow:
+    92px 0 rgba(251, 250, 246, 0.36),
+    184px 0 rgba(251, 250, 246, 0.22);
 }
 
 .scene-window {
@@ -630,7 +719,9 @@ a:focus-visible {
   text-align: left;
   color: rgba(23, 24, 23, 0.58);
   border-bottom: 1px solid var(--lr-line);
-  transition: color 0.25s ease, padding 0.25s ease;
+  transition:
+    color 0.25s ease,
+    padding 0.25s ease;
 }
 
 .lr-phase-button:hover,
@@ -711,7 +802,12 @@ a:focus-visible {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(43, 45, 44, 0.92) 0%, rgba(43, 45, 44, 0.54) 36%, transparent 74%),
+    linear-gradient(
+      90deg,
+      rgba(43, 45, 44, 0.92) 0%,
+      rgba(43, 45, 44, 0.54) 36%,
+      transparent 74%
+    ),
     linear-gradient(0deg, rgba(43, 45, 44, 0.82), transparent 32%);
 }
 
@@ -783,7 +879,9 @@ a:focus-visible {
   text-align: left;
   color: rgba(23, 24, 23, 0.58);
   border-bottom: 1px solid var(--lr-line);
-  transition: color 0.25s ease, padding 0.25s ease;
+  transition:
+    color 0.25s ease,
+    padding 0.25s ease;
 }
 
 .lr-service-button:hover,
@@ -960,7 +1058,11 @@ a:focus-visible {
   content: "";
   position: absolute;
   inset: 12% 10%;
-  background: repeating-linear-gradient(90deg, rgba(245, 200, 66, 0.65) 0 2px, transparent 2px 38px);
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(245, 200, 66, 0.65) 0 2px,
+    transparent 2px 38px
+  );
   opacity: 0.8;
 }
 
@@ -977,7 +1079,11 @@ a:focus-visible {
 }
 
 .project-building-alt {
-  background: linear-gradient(135deg, rgba(23, 24, 23, 0.18), rgba(245, 200, 66, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(23, 24, 23, 0.18),
+    rgba(245, 200, 66, 0.1)
+  );
   transform: skewY(4deg) rotate(-2deg);
   top: 20%;
   left: 21%;
@@ -985,7 +1091,11 @@ a:focus-visible {
 }
 
 .project-building-alt::before {
-  background: repeating-linear-gradient(0deg, rgba(245, 200, 66, 0.65) 0 2px, transparent 2px 33px);
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(245, 200, 66, 0.65) 0 2px,
+    transparent 2px 33px
+  );
 }
 
 .project-card-label {
@@ -1291,7 +1401,9 @@ a:focus-visible {
   letter-spacing: 0.1em;
   font-size: 10px;
   pointer-events: none;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 }
 
 .lr-field input,
@@ -1452,6 +1564,22 @@ a:focus-visible {
   }
   .lr-hero-copy {
     font-size: 14px;
+  }
+  .lr-statement,
+  .lr-statement-inner {
+    min-height: 300px;
+  }
+  .lr-statement-inner {
+    width: min(calc(100% - 34px), var(--lr-max));
+    padding: 52px 0 32px;
+  }
+  .lr-statement h2 {
+    font-size: clamp(1.55rem, 7.8vw, 2.6rem);
+  }
+  .lr-statement p {
+    width: min(100%, 290px);
+    margin-right: 0;
+    font-size: 13px;
   }
   .lr-hero-meta {
     margin-top: 52px;

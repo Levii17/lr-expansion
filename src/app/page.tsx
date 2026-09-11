@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import StatementStrip from "@/components/StatementStrip";
 import Approach from "@/components/Approach";
 import WhatWeDo from "@/components/WhatWeDo";
 import Projects from "@/components/Projects";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main id="top">
         <Hero />
+        <StatementStrip />
         <Approach />
         <WhatWeDo />
         <Projects />
