@@ -1,56 +1,82 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
-const galleryProjects = [
+const galleryImages = [
   {
-    index: "01",
-    status: "Completed",
-    type: "Residential",
-    detail: "Finished facade and entrance, ready for handover.",
-    image: "/projects/01-facade-detail.jpg",
-    className: "is-wide",
+    src: "/projects/01-facade-detail.jpg",
+    alt: "Completed building facade, angled exterior view",
   },
   {
-    index: "02",
-    status: "Nearing completion",
-    type: "Residential",
-    detail: "Final fittings and grounds going in ahead of handover.",
-    image: "/projects/02-nearing-completion.jpg",
-    className: "is-tall",
+    src: "/projects/02-nearing-completion.jpg",
+    alt: "House nearing completion, garage and entrance",
   },
   {
-    index: "03",
-    status: "On site",
-    type: "Finishes",
-    detail: "Roofing and exterior finishing work in progress.",
-    image: "/projects/03-finishing-work.jpg",
-    className: "is-standard",
+    src: "/projects/03-finishing-work.jpg",
+    alt: "Roofing and finishing work in progress",
   },
   {
-    index: "04",
-    status: "On site",
-    type: "Multi-unit build",
-    detail: "Structural and exterior work underway on a residential block.",
-    image: "/projects/04-structure-on-site.jpg",
-    className: "is-wide",
+    src: "/projects/04-structure-on-site.jpg",
+    alt: "Multi-unit residential block under construction",
   },
   {
-    index: "05",
-    status: "On site",
-    type: "Site standards",
-    detail: "Quality and safety, checked at every course of brick.",
-    image: "/projects/05-on-site-detail.jpg",
-    className: "is-standard",
+    src: "/projects/05-on-site-detail.jpg",
+    alt: "Site safety helmet resting on fresh brickwork",
+  },
+  {
+    src: "/projects/06-materials-delivery.jpg",
+    alt: "Crane offloading building materials on site",
+  },
+  {
+    src: "/projects/07-on-site-team.jpg",
+    alt: "Site team working on a roof structure",
+  },
+  {
+    src: "/projects/08-structure-progress.jpg",
+    alt: "Double-storey brickwork taking shape",
+  },
+  {
+    src: "/projects/09-roof-tiling.jpg",
+    alt: "Roof tiles stacked and ready for installation",
   },
 ];
 
-const foundedYear = 2020;
-const yearsActive = new Date().getFullYear() - foundedYear;
+// Duplicated once so the marquee can loop seamlessly at -50%.
+const loopedImages = [...galleryImages, ...galleryImages];
 
 export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   useReveal();
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setActiveIndex(null);
+      if (event.key === "ArrowRight") {
+        setActiveIndex((current) =>
+          current === null ? null : (current + 1) % galleryImages.length,
+        );
+      }
+      if (event.key === "ArrowLeft") {
+        setActiveIndex((current) =>
+          current === null
+            ? null
+            : (current - 1 + galleryImages.length) % galleryImages.length,
+        );
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [activeIndex]);
 
   return (
     <section
@@ -66,45 +92,76 @@ export default function Projects() {
             </h2>
           </div>
           <p className="lr-section-intro">
-            Developments shaped by clear thinking, disciplined delivery and a
-            respect for what lasts.
+            A look at work on the ground. From first brick to final finish.
           </p>
         </div>
-        <div className="lr-project-gallery">
-          {galleryProjects.map((project, index) => (
-            <a
-              className={`lr-project-tile ${project.className} lr-reveal delay-${(index % 3) + 1}`}
-              href="#contact"
-              aria-label={`Start a conversation about a project like this — ${project.type}`}
-              key={project.index}
+      </div>
+
+      <div className="lr-gallery-track-wrap lr-reveal delay-1">
+        <div className="lr-gallery-track">
+          {loopedImages.map((image, index) => (
+            <button
+              key={`${image.src}-${index}`}
+              type="button"
+              className="lr-gallery-item"
+              onClick={() => setActiveIndex(index % galleryImages.length)}
+              aria-label={`Open larger view: ${image.alt}`}
             >
-              <div
-                className="lr-project-image"
-                style={{ backgroundImage: `url(${project.image})` }}
-                aria-hidden="true"
-              />
-              <div className="lr-project-shade" aria-hidden="true" />
-              <ArrowUpRight className="project-arrow" size={22} />
-              <div className="project-tile-copy">
-                <div className="project-card-label lr-mono">
-                  <span>{project.index}</span>
-                  <span>{project.status}</span>
-                </div>
-                <h3 className="lr-display">{project.type}</h3>
-                <p>{project.detail}</p>
-              </div>
-            </a>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={image.src} alt={image.alt} loading="lazy" />
+            </button>
           ))}
-          <div className="lr-project-index">
-            <span className="lr-mono">On the ground since {foundedYear}</span>
-            <strong className="lr-display">{yearsActive}</strong>
-            <p>
-              Years turning briefs into finished buildings — one site at a
-              time.
-            </p>
-          </div>
         </div>
       </div>
+
+      {activeIndex !== null && (
+        <div
+          className="lr-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={galleryImages[activeIndex].alt}
+          onClick={() => setActiveIndex(null)}
+        >
+          <button
+            type="button"
+            className="lr-lightbox-close"
+            aria-label="Close"
+            onClick={() => setActiveIndex(null)}
+          >
+            <X size={20} />
+          </button>
+          <button
+            type="button"
+            className="lr-lightbox-nav is-prev"
+            aria-label="Previous image"
+            onClick={(event) => {
+              event.stopPropagation();
+              setActiveIndex(
+                (activeIndex - 1 + galleryImages.length) % galleryImages.length,
+              );
+            }}
+          >
+            <ChevronLeft size={22} />
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={galleryImages[activeIndex].src}
+            alt={galleryImages[activeIndex].alt}
+            onClick={(event) => event.stopPropagation()}
+          />
+          <button
+            type="button"
+            className="lr-lightbox-nav is-next"
+            aria-label="Next image"
+            onClick={(event) => {
+              event.stopPropagation();
+              setActiveIndex((activeIndex + 1) % galleryImages.length);
+            }}
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
