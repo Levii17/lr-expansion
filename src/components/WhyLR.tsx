@@ -1,6 +1,5 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
 const principles: [string, string, string][] = [
@@ -29,7 +28,7 @@ export default function WhyLR() {
       <div className="lr-container">
         <div className="lr-why-header lr-reveal">
           <div className="lr-why-kicker lr-mono">
-            Est. 2020 — working nationwide
+            Est. 2020
           </div>
           <h2 id="why-heading" className="lr-display">
             The best work is
@@ -45,9 +44,6 @@ export default function WhyLR() {
               That means decisive thinking, honest collaboration and a rigorous
               focus on the details that make places endure.
             </p>
-            <a href="#contact" className="lr-text-action">
-              Meet the team <ChevronRight size={16} />
-            </a>
           </div>
         </div>
 
