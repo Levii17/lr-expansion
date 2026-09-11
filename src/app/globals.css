@@ -1,20 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Roboto+Condensed:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --lr-black: #171817;
+  --lr-black: #101211;
   --lr-ink: #252725;
-  --lr-yellow: #f5c842;
-  --lr-paper: #f0eee8;
-  --lr-white: #fbfaf6;
+  --lr-yellow: #ffcc00;
+  --lr-paper: #f1efe8;
+  --lr-white: #fffdf5;
   --lr-concrete: #c9c8c2;
   --lr-steel: #657073;
-  --lr-line: rgba(23, 24, 23, 0.18);
+  --lr-line: rgba(16, 18, 17, 0.18);
+  --lr-line-dark: rgba(255, 253, 245, 0.16);
   --lr-max: 1440px;
 
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Roboto Condensed", Arial Narrow, sans-serif;
   --font-body: "DM Sans", Arial, sans-serif;
-  --font-label: "Space Mono", monospace;
+  --font-label: "DM Mono", monospace;
 }
 
 * {
@@ -65,8 +66,8 @@ a:focus-visible {
 
 .lr-display {
   font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.055em;
+  font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 .lr-mono {
@@ -1490,7 +1491,7 @@ a:focus-visible {
   padding: 16px 0;
   border-bottom: 1px solid rgba(251, 250, 246, 0.12);
   color: var(--lr-yellow);
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1533,6 +1534,7 @@ a:focus-visible {
   max-width: 870px;
   margin: 0;
   color: var(--lr-white);
+  font-family: var(--font-display);
   font-size: clamp(66px, 9.5vw, 150px);
   font-weight: 700;
   letter-spacing: -0.055em;
