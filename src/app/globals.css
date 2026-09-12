@@ -1415,6 +1415,10 @@ a:focus-visible {
   );
 }
 
+.lr-gallery-track-wrap + .lr-gallery-track-wrap {
+  margin-top: 16px;
+}
+
 .lr-gallery-track {
   display: flex;
   align-items: stretch;
@@ -1422,6 +1426,10 @@ a:focus-visible {
   width: max-content;
   padding: 4px 24px;
   animation: lr-gallery-scroll 70s linear infinite;
+}
+
+.lr-gallery-track-wrap.is-reverse .lr-gallery-track {
+  animation-direction: reverse;
 }
 
 .lr-gallery-track-wrap:hover .lr-gallery-track {

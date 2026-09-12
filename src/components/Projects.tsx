@@ -127,6 +127,23 @@ export default function Projects() {
         </div>
       </div>
 
+      <div className="lr-gallery-track-wrap is-reverse lr-reveal delay-2">
+        <div className="lr-gallery-track">
+          {loopedImages.map((image, index) => (
+            <button
+              key={`${image.src}-${index}`}
+              type="button"
+              className="lr-gallery-item"
+              onClick={() => setActiveIndex(index % galleryImages.length)}
+              aria-label={`Open larger view: ${image.alt}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={image.src} alt={image.alt} loading="lazy" />
+            </button>
+          ))}
+        </div>
+      </div>
+
       {activeIndex !== null && (
         <div
           className={`lr-lightbox ${isClosing ? "is-closing" : ""}`}
