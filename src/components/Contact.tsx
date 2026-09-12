@@ -56,7 +56,7 @@ export default function Contact() {
       aria-labelledby="contact-heading"
     >
       <div className="lr-container lr-contact-grid">
-        <div className="lr-reveal">
+        <div className="lr-reveal from-left">
           <h2 id="contact-heading" className="lr-display">
             From development <span className="lr-yellow">to delivery.</span>
           </h2>
@@ -93,7 +93,7 @@ export default function Contact() {
           </div>
         </div>
         <form
-          className="lr-contact-form lr-reveal delay-1"
+          className="lr-contact-form lr-reveal from-right delay-1"
           ref={formRef}
           onSubmit={handleSubmit}
         >

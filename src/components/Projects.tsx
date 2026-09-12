@@ -48,7 +48,20 @@ const loopedImages = [...galleryImages, ...galleryImages];
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
   useReveal();
+
+  const closeLightbox = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setActiveIndex(null);
+      return;
+    }
+    setIsClosing(true);
+    window.setTimeout(() => {
+      setActiveIndex(null);
+      setIsClosing(false);
+    }, 220);
+  };
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -56,7 +69,7 @@ export default function Projects() {
     document.body.style.overflow = "hidden";
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setActiveIndex(null);
+      if (event.key === "Escape") closeLightbox();
       if (event.key === "ArrowRight") {
         setActiveIndex((current) =>
           current === null ? null : (current + 1) % galleryImages.length,
@@ -116,17 +129,17 @@ export default function Projects() {
 
       {activeIndex !== null && (
         <div
-          className="lr-lightbox"
+          className={`lr-lightbox ${isClosing ? "is-closing" : ""}`}
           role="dialog"
           aria-modal="true"
           aria-label={galleryImages[activeIndex].alt}
-          onClick={() => setActiveIndex(null)}
+          onClick={closeLightbox}
         >
           <button
             type="button"
             className="lr-lightbox-close"
             aria-label="Close"
-            onClick={() => setActiveIndex(null)}
+            onClick={closeLightbox}
           >
             <X size={20} />
           </button>
@@ -145,6 +158,7 @@ export default function Projects() {
           </button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
+            key={activeIndex}
             src={galleryImages[activeIndex].src}
             alt={galleryImages[activeIndex].alt}
             onClick={(event) => event.stopPropagation()}

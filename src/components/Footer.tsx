@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowUp, Mail, Phone } from "lucide-react";
+import { useReveal } from "@/hooks/useReveal";
 
 const FOOTER_LINKS: [string, string][] = [
   ["Approach", "#approach"],
@@ -10,6 +13,8 @@ const FOOTER_LINKS: [string, string][] = [
 ];
 
 export default function Footer() {
+  useReveal();
+
   return (
     <footer className="lr-footer">
       <div className="lr-footer-ticker lr-mono" aria-hidden="true">
@@ -27,7 +32,7 @@ export default function Footer() {
       </div>
       <div className="lr-container lr-footer-content">
         <div className="lr-footer-grid">
-          <div className="lr-footer-heading-col">
+          <div className="lr-footer-heading-col lr-reveal from-left">
             <h2 className="lr-footer-heading">
               Let&apos;s build
               <br />
@@ -37,7 +42,10 @@ export default function Footer() {
             </h2>
           </div>
 
-          <nav className="lr-footer-links" aria-label="Footer navigation">
+          <nav
+            className="lr-footer-links lr-reveal delay-1"
+            aria-label="Footer navigation"
+          >
             <span className="lr-mono lr-footer-col-label">Menu</span>
             {FOOTER_LINKS.map(([label, href]) => (
               <a key={href} href={href}>
@@ -46,7 +54,7 @@ export default function Footer() {
             ))}
           </nav>
 
-          <div className="lr-footer-contact-col">
+          <div className="lr-footer-contact-col lr-reveal delay-2">
             <span className="lr-mono lr-footer-col-label">Get in touch</span>
             <a href="mailto:lrexpansion1@yahoo.com">
               <Mail size={12} /> lrexpansion1@yahoo.com
@@ -59,7 +67,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <div className="lr-footer-social-col">
+          <div className="lr-footer-social-col lr-reveal from-right">
             <span className="lr-mono lr-footer-col-label">Follow</span>
             <div className="lr-footer-socials" aria-label="Social links">
               <a href="#" aria-label="LinkedIn">
@@ -75,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="lr-footer-inner">
+        <div className="lr-footer-inner lr-reveal">
           <span className="lr-mono-footer">
             © {new Date().getFullYear()} LR Expansion Group
           </span>

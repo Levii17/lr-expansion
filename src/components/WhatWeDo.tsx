@@ -23,7 +23,7 @@ const services = [
     key: "turnkey",
     index: "03",
     title: "Single-point delivery",
-    copy: "One accountable route from brief to handover — aligning design, procurement and execution without the gaps.",
+    copy: "One accountable route from brief to handover, aligning design, procurement and execution without the gaps.",
     tags: ["ONE TEAM", "ONE PROGRAMME", "ONE HANDOVER"],
   },
   {
@@ -63,7 +63,7 @@ export default function WhatWeDo() {
         {/* Desktop / tablet: tab list + detail panel */}
         <div className="lr-services-layout">
           <div
-            className="lr-services-list lr-reveal delay-1"
+            className="lr-services-list lr-reveal from-left"
             role="tablist"
             aria-label="Services"
           >
@@ -84,7 +84,7 @@ export default function WhatWeDo() {
               </button>
             ))}
           </div>
-          <div className="lr-service-detail lr-reveal delay-2">
+          <div className="lr-service-detail lr-reveal from-right delay-1">
             <div className="lr-service-detail-top lr-mono">
               <span>LR / {current.index}</span>
               <span>CAPABILITY</span>
@@ -95,11 +95,13 @@ export default function WhatWeDo() {
               <div className="graphic-volume v-two" />
               <div className="graphic-volume v-three" />
             </div>
-            <p>{current.copy}</p>
-            <div className="lr-tag-list lr-mono">
-              {current.tags.map((tag) => (
-                <span key={tag}>{tag}</span>
-              ))}
+            <div className="lr-service-detail-body" key={current.key}>
+              <p>{current.copy}</p>
+              <div className="lr-tag-list lr-mono">
+                {current.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>

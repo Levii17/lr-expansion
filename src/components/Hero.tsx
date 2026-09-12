@@ -1,3 +1,5 @@
+import { ArrowUpRight } from "lucide-react";
+
 export default function Hero() {
   return (
     <section className="lr-hero" aria-labelledby="hero-heading">
@@ -16,6 +18,9 @@ export default function Hero() {
             <i />
             <span>Development</span>
           </div>
+          <a className="lr-hero-cta" href="#contact">
+            Start a project <ArrowUpRight size={15} />
+          </a>
         </div>
       </div>
       <div className="lr-scroll-cue lr-mono" aria-hidden="true">

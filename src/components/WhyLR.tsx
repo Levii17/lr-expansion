@@ -48,8 +48,11 @@ export default function WhyLR() {
         </div>
 
         <div className="lr-principles">
-          {principles.map(([index, title, copy]) => (
-            <div className="lr-principle lr-reveal" key={index}>
+          {principles.map(([index, title, copy], i) => (
+            <div
+              className={`lr-principle lr-reveal delay-${i + 1}`}
+              key={index}
+            >
               <span className="lr-mono">{index}</span>
               <h3>{title}</h3>
               <p>{copy}</p>
