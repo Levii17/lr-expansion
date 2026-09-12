@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MoveUpRight } from "lucide-react";
+import { ChevronDown, MoveUpRight } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
 const services = [
@@ -37,6 +37,7 @@ const services = [
 
 export default function WhatWeDo() {
   const [active, setActive] = useState(0);
+  const [openMobile, setOpenMobile] = useState<number | null>(0);
   useReveal();
   const current = services[active];
 
@@ -58,6 +59,8 @@ export default function WhatWeDo() {
             finished asset that performs on day one.
           </p>
         </div>
+
+        {/* Desktop / tablet: tab list + detail panel */}
         <div className="lr-services-layout">
           <div
             className="lr-services-list lr-reveal delay-1"
@@ -99,6 +102,44 @@ export default function WhatWeDo() {
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Mobile: accordion */}
+        <div className="lr-services-accordion lr-reveal delay-1">
+          {services.map((service, index) => {
+            const isOpen = openMobile === index;
+            return (
+              <div
+                className={`lr-service-accordion-item ${isOpen ? "is-open" : ""}`}
+                key={service.key}
+              >
+                <button
+                  type="button"
+                  className="lr-service-accordion-trigger"
+                  aria-expanded={isOpen}
+                  aria-controls={`service-panel-${service.key}`}
+                  onClick={() => setOpenMobile(isOpen ? null : index)}
+                >
+                  <span className="phase-num lr-mono">{service.index}</span>
+                  <span className="phase-title">{service.title}</span>
+                  <ChevronDown size={18} className="accordion-chevron" />
+                </button>
+                {isOpen && (
+                  <div
+                    className="lr-service-accordion-panel"
+                    id={`service-panel-${service.key}`}
+                  >
+                    <p>{service.copy}</p>
+                    <div className="lr-tag-list lr-mono">
+                      {service.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

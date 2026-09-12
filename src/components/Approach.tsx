@@ -53,7 +53,7 @@ const phases = [
   },
 ];
 
-const stageCheckpoints = [0, 0.12, 0.34, 0.56, 0.78];
+const stageCheckpoints = [0, 0.15, 0.36, 0.57, 0.82];
 
 export default function Approach() {
   const [activePhase, setActivePhase] = useState(0);
@@ -79,7 +79,7 @@ export default function Approach() {
     const trigger = ScrollTrigger.create({
       trigger: journeyRef.current,
       start: "top 82%",
-      end: "bottom 18%",
+      end: "bottom 8%",
       onUpdate: (self) => {
         const nextStage = stageCheckpoints.reduce(
           (stage, checkpoint, index) =>
