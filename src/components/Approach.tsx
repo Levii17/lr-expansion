@@ -69,6 +69,23 @@ export default function Approach() {
   const immersiveExitTimeoutRef = useRef<number | null>(null);
   useReveal();
 
+  const exitImmersive = () => {
+    const trigger = scrollTriggerRef.current;
+    if (!trigger || immersiveExitTimeoutRef.current !== null) return;
+
+    const exitTarget = Math.max(
+      window.scrollY,
+      trigger.end - window.innerHeight * 0.75,
+    );
+    setIsImmersiveExiting(true);
+    window.scrollTo({ top: exitTarget, behavior: "smooth" });
+    immersiveExitTimeoutRef.current = window.setTimeout(() => {
+      setIsImmersive(false);
+      setIsImmersiveExiting(false);
+      immersiveExitTimeoutRef.current = null;
+    }, 420);
+  };
+
   useEffect(() => {
     if (
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
@@ -114,7 +131,7 @@ export default function Approach() {
           setIsImmersive(false);
           setIsImmersiveExiting(false);
           immersiveExitTimeoutRef.current = null;
-        }, 340);
+        }, 420);
       },
       onUpdate: (self) => {
         setProgress(self.progress);
@@ -151,19 +168,11 @@ export default function Approach() {
     hasAutoExitedRef.current = true;
 
     const timeout = window.setTimeout(() => {
-      const trigger = scrollTriggerRef.current;
-      if (!trigger) return;
-      window.scrollTo({ top: trigger.end + 2, behavior: "smooth" });
+      exitImmersive();
     }, 1100);
 
     return () => window.clearTimeout(timeout);
   }, [activePhase, isImmersive]);
-
-  const exitImmersive = () => {
-    const trigger = scrollTriggerRef.current;
-    if (!trigger) return;
-    window.scrollTo({ top: trigger.end + 2, behavior: "smooth" });
-  };
 
   const phase = phases[activePhase];
 
