@@ -15,7 +15,8 @@ const WHATSAPP_NUMBER = "27712832325";
 
 const RESOURCES = [
   { label: "Company brochure", href: "/downloads/lr-expansion-brochure.pdf" },
-  { label: "Labour cost guide", href: "/downloads/lr-expansion-labour-costs.pdf" },
+  { label: "general building prices", href: "/downloads/lr-general-building-prices-per-square-metre.pdf" },
+  { label: "cost breakdown", href: "/downloads/lr-cost-breakdown-&-provisional-sums.pdf" },
 ];
 
 export default function Contact() {

@@ -2409,6 +2409,9 @@ a:focus-visible {
     gap: 26px;
   }
   .lr-statement h2 {
+    align-self: flex-start;
+    width: 100%;
+    text-align: left;
     max-width: none;
     font-size: clamp(2rem, 9.5vw, 2.6rem);
     line-height: 1.04;
