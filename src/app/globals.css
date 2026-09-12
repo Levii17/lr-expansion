@@ -77,6 +77,13 @@ a:focus-visible {
   font-size: 0.65rem;
 }
 
+.lr-mono-footer {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.5rem;
+}
+
 .lr-container {
   width: min(calc(100% - 48px), var(--lr-max));
   margin: 0 auto;
@@ -2226,6 +2233,7 @@ a:focus-visible {
   .lr-footer-inner {
     flex-wrap: nowrap;
     gap: 0;
+    font-size: 10px;
   }
   .lr-footer-content {
     min-height: 0;
@@ -2255,7 +2263,7 @@ a:focus-visible {
   }
   .lr-footer-links a,
   .lr-footer-contact-col a {
-    font-size: 12px;
+    font-size: 10px;
     gap: 7px;
   }
   .lr-footer-socials {

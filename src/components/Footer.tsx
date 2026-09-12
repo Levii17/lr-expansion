@@ -49,13 +49,13 @@ export default function Footer() {
           <div className="lr-footer-contact-col">
             <span className="lr-mono lr-footer-col-label">Get in touch</span>
             <a href="mailto:lrexpansion1@yahoo.com">
-              <Mail size={14} /> lrexpansion1@yahoo.com
+              <Mail size={12} /> lrexpansion1@yahoo.com
             </a>
             <a href="tel:+27712832325">
-              <Phone size={14} /> +27 71 283 2325
+              <Phone size={12} /> +27 71 283 2325
             </a>
             <a href="tel:+27837813835">
-              <Phone size={14} /> +27 83 781 3835
+              <Phone size={12} /> +27 83 781 3835
             </a>
           </div>
 
@@ -76,10 +76,10 @@ export default function Footer() {
         </div>
 
         <div className="lr-footer-inner">
-          <span className="lr-mono">
+          <span className="lr-mono-footer">
             © {new Date().getFullYear()} LR Expansion Group
           </span>
-          <span className="lr-mono">
+          <span className="lr-mono-footer">
             Build by{" "}
             <a
               href="https://mxolisi.is-a.dev/"
@@ -89,7 +89,7 @@ export default function Footer() {
               mxolisi
             </a>
           </span>
-          <a className="lr-mono lr-footer-top" href="#top">
+          <a className="lr-mono-footer lr-footer-top" href="#top">
             Back to top <ArrowUp size={13} />
           </a>
         </div>
