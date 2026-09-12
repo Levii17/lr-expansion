@@ -598,7 +598,7 @@ a:focus-visible {
 
 .lr-statement {
   position: relative;
-  min-height: 360px;
+  min-height: 340px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -610,9 +610,9 @@ a:focus-visible {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 48px), var(--lr-max));
-  min-height: 360px;
+  min-height: 340px;
   margin: 0 auto;
-  padding: 72px 0 56px;
+  padding: 32px 0 16px;
 }
 
 .lr-statement-grid {
@@ -988,6 +988,88 @@ a:focus-visible {
   background: #2b2d2c;
   overflow: hidden;
   border: 1px solid rgba(251, 250, 246, 0.16);
+}
+
+/* ---------- Approach / immersive fullscreen takeover ---------- */
+
+.lr-phase-visual.is-immersive {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  min-height: 0 !important;
+  z-index: 70;
+  border: none;
+  background: #2b2d2c !important;
+  opacity: 1 !important;
+  animation: lr-immersive-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes lr-immersive-in {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Progress bar + exit control sit above the phase copy, so give the copy
+   and the marker text room instead of overlapping the new UI. */
+.lr-phase-visual.is-immersive .phase-visual-copy {
+  top: 56px;
+}
+
+.lr-phase-visual.is-immersive .phase-number-big {
+  top: auto;
+  bottom: 64px;
+  right: 24px;
+}
+
+.lr-immersive-exit {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(251, 250, 246, 0.3);
+  color: var(--lr-white);
+  background: rgba(16, 18, 17, 0.4);
+  animation: lr-lightbox-controls-in 0.4s 0.2s ease both;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.lr-immersive-exit:hover {
+  border-color: var(--lr-yellow);
+  color: var(--lr-yellow);
+}
+
+.lr-immersive-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  height: 3px;
+  background: rgba(251, 250, 246, 0.14);
+}
+
+.lr-immersive-progress-bar {
+  height: 100%;
+  background: var(--lr-yellow);
+  transform-origin: left;
+  transition: transform 0.15s linear;
 }
 
 .lr-phase-visual::before {
@@ -2279,8 +2361,8 @@ a:focus-visible {
     font-size: 10px;
   }
   .lr-scroll-cue {
-    right: 17px;
     left: auto;
+    right: 17px;
     bottom: 22px;
     writing-mode: vertical-rl;
   }
@@ -2294,7 +2376,7 @@ a:focus-visible {
   }
   .lr-statement-inner {
     width: min(calc(100% - 34px), var(--lr-max));
-    padding: 52px 0 40px;
+    padding: 22px 0 10px;
   }
   .lr-statement-grid {
     display: flex;
@@ -2378,6 +2460,13 @@ a:focus-visible {
     max-width: 42%;
     text-align: right;
     line-height: 1.5;
+  }
+  .lr-phase-visual.is-immersive .phase-visual-copy {
+    top: 64px;
+    right: 76px;
+  }
+  .lr-phase-visual.is-immersive .phase-number-big {
+    bottom: 96px;
   }
   .lr-three-scene-legend {
     right: auto;

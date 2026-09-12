@@ -7,9 +7,9 @@ export default function StatementStrip() {
 
   return (
     <section className="lr-statement" aria-labelledby="statement-heading">
-      <div className="lr-statement-watermark" aria-hidden="true">
+      {/* <div className="lr-statement-watermark" aria-hidden="true">
         L R
-      </div>
+      </div> */}
       <div className="lr-statement-inner">
         <div className="lr-statement-grid">
           <h2 id="statement-heading" className="lr-reveal from-left">
@@ -21,11 +21,11 @@ export default function StatementStrip() {
             <br />
             <strong>develop better.</strong>
           </h2>
-          <p className="lr-reveal from-right delay-1">
+          {/* <p className="lr-reveal from-right delay-1">
             Because the strongest result starts before a spade hits the ground.
             We join the dots between the commercial brief and the finished
             address.
-          </p>
+          </p> */}
         </div>
       </div>
     </section>

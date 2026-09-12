@@ -283,7 +283,7 @@ export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.shadowMap.enabled =
       !window.matchMedia("(max-width: 640px)").matches;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
 
     scene.add(new THREE.HemisphereLight(0xf0eee8, 0x171817, 2.1));
@@ -382,17 +382,8 @@ export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
     scrollTimeline?.to(model.position, { y: 0.05, ease: "none" }, 0);
 
     let frameId = 0;
-    let isVisible = true;
-    const visibilityObserver = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { threshold: 0.01 },
-    );
-    visibilityObserver.observe(root);
     const render = () => {
       frameId = requestAnimationFrame(render);
-      if (!isVisible) return;
       if (!reducedMotion) {
         model.rotation.z = Math.sin(performance.now() * 0.00032) * 0.006;
       }
@@ -404,7 +395,6 @@ export function ConstructionScene({ activeStage }: ConstructionSceneProps) {
     return () => {
       cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
-      visibilityObserver.disconnect();
       scrollTimeline?.scrollTrigger?.kill();
       scrollTimeline?.kill();
       gsap.killTweensOf(model.rotation);

@@ -23,7 +23,7 @@ const services = [
     key: "turnkey",
     index: "03",
     title: "Single-point delivery",
-    copy: "One accountable route from brief to handover, aligning design, procurement and execution without the gaps.",
+    copy: "One accountable route from brief to handover — aligning design, procurement and execution without the gaps.",
     tags: ["ONE TEAM", "ONE PROGRAMME", "ONE HANDOVER"],
   },
   {

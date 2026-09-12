@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { X } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ConstructionScene from "@/components/ConstructionScene";
@@ -54,11 +55,16 @@ const phases = [
 ];
 
 const stageCheckpoints = [0, 0.15, 0.36, 0.57, 0.82];
+const LAST_STAGE = phases.length - 1;
 
 export default function Approach() {
   const [activePhase, setActivePhase] = useState(0);
+  const [isImmersive, setIsImmersive] = useState(false);
+  const [progress, setProgress] = useState(0);
   const phaseCopyRef = useRef<HTMLDivElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  const hasAutoExitedRef = useRef(false);
   useReveal();
 
   useEffect(() => {
@@ -76,11 +82,25 @@ export default function Approach() {
 
   useEffect(() => {
     if (!journeyRef.current) return;
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    // Match the trigger's start point to the sticky pin offset itself
+    // (rather than firing while the section is still mostly off-screen)
+    // so the fullscreen takeover engages right as the panel would pin,
+    // not a beat before it.
+    const pinOffset = window.matchMedia("(min-width: 901px)").matches
+      ? 96
+      : 76;
     const trigger = ScrollTrigger.create({
       trigger: journeyRef.current,
-      start: "top 82%",
+      start: `top ${pinOffset}px`,
       end: "bottom 8%",
+      // Fullscreen takeover is a scroll-jack effect, so skip it entirely
+      // for people who've asked for reduced motion.
+      onToggle: (self) => setIsImmersive(!reducedMotion && self.isActive),
       onUpdate: (self) => {
+        setProgress(self.progress);
         const nextStage = stageCheckpoints.reduce(
           (stage, checkpoint, index) =>
             self.progress >= checkpoint ? index : stage,
@@ -91,8 +111,39 @@ export default function Approach() {
         );
       },
     });
-    return () => trigger.kill();
+    scrollTriggerRef.current = trigger;
+    return () => {
+      scrollTriggerRef.current = null;
+      trigger.kill();
+    };
   }, []);
+
+  // Once the last stage (05/05) has been reached, automatically carry the
+  // visitor out of the fullscreen scene and back into the normal page flow
+  // instead of requiring them to keep scrolling through the pinned section.
+  useEffect(() => {
+    if (activePhase !== LAST_STAGE || !isImmersive) {
+      hasAutoExitedRef.current = false;
+      return;
+    }
+    if (hasAutoExitedRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    hasAutoExitedRef.current = true;
+
+    const timeout = window.setTimeout(() => {
+      const trigger = scrollTriggerRef.current;
+      if (!trigger) return;
+      window.scrollTo({ top: trigger.end + 2, behavior: "smooth" });
+    }, 1100);
+
+    return () => window.clearTimeout(timeout);
+  }, [activePhase, isImmersive]);
+
+  const exitImmersive = () => {
+    const trigger = scrollTriggerRef.current;
+    if (!trigger) return;
+    window.scrollTo({ top: trigger.end + 2, behavior: "smooth" });
+  };
 
   const phase = phases[activePhase];
 
@@ -118,9 +169,29 @@ export default function Approach() {
           <div className="lr-phase-layout">
             <div className="lr-phase-stage">
               <div
-                className="lr-phase-visual lr-reveal delay-2"
+                className={`lr-phase-visual lr-reveal delay-2 ${
+                  isImmersive ? "is-immersive" : ""
+                }`}
                 aria-live="polite"
               >
+                {isImmersive && (
+                  <>
+                    <div className="lr-immersive-progress" aria-hidden="true">
+                      <div
+                        className="lr-immersive-progress-bar"
+                        style={{ transform: `scaleX(${progress})` }}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      className="lr-immersive-exit"
+                      aria-label="Exit fullscreen construction view"
+                      onClick={exitImmersive}
+                    >
+                      <X size={18} />
+                    </button>
+                  </>
+                )}
                 <div className="phase-visual-copy" ref={phaseCopyRef}>
                   <div className="lr-kicker lr-yellow">
                     <span>{phase.number}</span> / {phase.kicker}
