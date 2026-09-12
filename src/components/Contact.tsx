@@ -1,8 +1,22 @@
 "use client";
 
 import { type FormEvent, useRef, useState } from "react";
-import { ArrowUpRight, Check, Mail, MapPin, Phone } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  Download,
+  Mail,
+  MapPin,
+  Phone,
+} from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
+
+const WHATSAPP_NUMBER = "27712832325";
+
+const RESOURCES = [
+  { label: "Company brochure", href: "/downloads/lr-expansion-brochure.pdf" },
+  { label: "Labour cost guide", href: "/downloads/lr-expansion-labour-costs.pdf" },
+];
 
 export default function Contact() {
   const [formSent, setFormSent] = useState(false);
@@ -11,8 +25,28 @@ export default function Contact() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const project = String(data.get("project") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+
+    const lines = [
+      "New enquiry from the website",
+      `Name: ${name}`,
+      `Email: ${email}`,
+      project && `Project / location: ${project}`,
+      `Message: ${message}`,
+    ].filter(Boolean);
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      lines.join("\n"),
+    )}`;
+
     setFormSent(true);
     formRef.current?.reset();
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -41,6 +75,21 @@ export default function Contact() {
             <span className="lr-mono lr-contact-location">
               <MapPin size={14} /> Gauteng / Free State / wherever the work is
             </span>
+          </div>
+          <div className="lr-resource-list">
+            <span className="lr-mono lr-resource-label">Downloads</span>
+            <div className="lr-resource-buttons">
+              {RESOURCES.map((resource) => (
+                <a
+                  key={resource.href}
+                  href={resource.href}
+                  download
+                  className="lr-resource-button"
+                >
+                  <Download size={14} /> {resource.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <form
@@ -79,11 +128,12 @@ export default function Contact() {
           <div className="lr-form-bottom">
             {formSent ? (
               <span className="lr-form-success" role="status">
-                <Check size={15} /> Thanks — we&apos;ll be in touch shortly.
+                <Check size={15} /> Opening WhatsApp — send the message to
+                reach us.
               </span>
             ) : (
               <span className="lr-form-success">
-                Usually responds within one working day.
+                Opens WhatsApp with your details filled in.
               </span>
             )}
             <button className="lr-button" type="submit">
