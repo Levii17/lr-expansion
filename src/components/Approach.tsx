@@ -60,11 +60,13 @@ const LAST_STAGE = phases.length - 1;
 export default function Approach() {
   const [activePhase, setActivePhase] = useState(0);
   const [isImmersive, setIsImmersive] = useState(false);
+  const [isImmersiveExiting, setIsImmersiveExiting] = useState(false);
   const [progress, setProgress] = useState(0);
   const phaseCopyRef = useRef<HTMLDivElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
   const hasAutoExitedRef = useRef(false);
+  const immersiveExitTimeoutRef = useRef<number | null>(null);
   useReveal();
 
   useEffect(() => {
@@ -89,16 +91,31 @@ export default function Approach() {
     // (rather than firing while the section is still mostly off-screen)
     // so the fullscreen takeover engages right as the panel would pin,
     // not a beat before it.
-    const pinOffset = window.matchMedia("(min-width: 901px)").matches
-      ? 96
-      : 76;
+    const pinOffset = window.matchMedia("(min-width: 901px)").matches ? 96 : 76;
     const trigger = ScrollTrigger.create({
       trigger: journeyRef.current,
       start: `top ${pinOffset}px`,
       end: "bottom 8%",
       // Fullscreen takeover is a scroll-jack effect, so skip it entirely
       // for people who've asked for reduced motion.
-      onToggle: (self) => setIsImmersive(!reducedMotion && self.isActive),
+      onToggle: (self) => {
+        if (reducedMotion || self.isActive) {
+          if (immersiveExitTimeoutRef.current !== null) {
+            window.clearTimeout(immersiveExitTimeoutRef.current);
+            immersiveExitTimeoutRef.current = null;
+          }
+          setIsImmersiveExiting(false);
+          setIsImmersive(!reducedMotion && self.isActive);
+          return;
+        }
+
+        setIsImmersiveExiting(true);
+        immersiveExitTimeoutRef.current = window.setTimeout(() => {
+          setIsImmersive(false);
+          setIsImmersiveExiting(false);
+          immersiveExitTimeoutRef.current = null;
+        }, 340);
+      },
       onUpdate: (self) => {
         setProgress(self.progress);
         const nextStage = stageCheckpoints.reduce(
@@ -113,6 +130,9 @@ export default function Approach() {
     });
     scrollTriggerRef.current = trigger;
     return () => {
+      if (immersiveExitTimeoutRef.current !== null) {
+        window.clearTimeout(immersiveExitTimeoutRef.current);
+      }
       scrollTriggerRef.current = null;
       trigger.kill();
     };
@@ -171,7 +191,7 @@ export default function Approach() {
               <div
                 className={`lr-phase-visual lr-reveal delay-2 ${
                   isImmersive ? "is-immersive" : ""
-                }`}
+                } ${isImmersiveExiting ? "is-exiting" : ""}`}
                 aria-live="polite"
               >
                 {isImmersive && (

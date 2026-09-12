@@ -1018,10 +1018,27 @@ a:focus-visible {
   }
 }
 
+.lr-phase-visual.is-immersive.is-exiting {
+  animation: none;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.lr-phase-visual.is-immersive.is-exiting .phase-visual-copy,
+.lr-phase-visual.is-immersive.is-exiting .phase-number-big,
+.lr-phase-visual.is-immersive.is-exiting .lr-three-scene,
+.lr-phase-visual.is-immersive.is-exiting .lr-immersive-progress,
+.lr-phase-visual.is-immersive.is-exiting .lr-immersive-exit {
+  opacity: 0;
+  transition: opacity 0.34s ease;
+}
+
 /* Progress bar + exit control sit above the phase copy, so give the copy
    and the marker text room instead of overlapping the new UI. */
 .lr-phase-visual.is-immersive .phase-visual-copy {
-  top: 56px;
+  top: 50%;
+  left: clamp(28px, 8vw, 120px);
+  translate: 0 -50%;
 }
 
 .lr-phase-visual.is-immersive .phase-number-big {
@@ -2470,8 +2487,9 @@ a:focus-visible {
     line-height: 1.5;
   }
   .lr-phase-visual.is-immersive .phase-visual-copy {
-    top: 64px;
+    top: 82px;
     right: 76px;
+    translate: none;
   }
   .lr-phase-visual.is-immersive .phase-number-big {
     bottom: 96px;

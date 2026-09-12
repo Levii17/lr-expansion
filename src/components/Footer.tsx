@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp, Mail, Phone } from "lucide-react";
+import { ArrowUp, Mail, Phone, X } from "lucide-react";
 import { useReveal } from "@/hooks/useReveal";
 
 const FOOTER_LINKS: [string, string][] = [
@@ -70,14 +70,13 @@ export default function Footer() {
           <div className="lr-footer-social-col lr-reveal from-right">
             <span className="lr-mono lr-footer-col-label">Follow</span>
             <div className="lr-footer-socials" aria-label="Social links">
-              <a href="#" aria-label="LinkedIn">
-                <span aria-hidden="true">in</span>
-              </a>
-              <a href="#" aria-label="Instagram">
-                <span aria-hidden="true">ig</span>
-              </a>
-              <a href="#" aria-label="Facebook">
-                <span aria-hidden="true">f</span>
+              <a
+                href="https://x.com/ExpansionLr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LR Expansion on X"
+              >
+                <X size={16} strokeWidth={2.5} aria-hidden="true" />
               </a>
             </div>
           </div>
