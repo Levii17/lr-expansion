@@ -45,13 +45,16 @@ export default function Header() {
           Start a project <ArrowUpRight size={15} />
         </a>
         <button
-          className="lr-menu-button"
+          className={`lr-menu-button ${menuOpen ? "is-open" : ""}`}
           type="button"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <X size={23} /> : <Menu size={23} />}
+          <span className="lr-menu-button-icon">
+            <Menu size={20} className="icon-menu" />
+            <X size={20} className="icon-close" />
+          </span>
         </button>
       </div>
       <div className={`lr-mobile-panel ${menuOpen ? "is-open" : ""}`}>
