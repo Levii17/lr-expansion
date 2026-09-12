@@ -31,7 +31,7 @@ export default function Standards() {
 
   return (
     <section
-      className="lr-standards"
+      className="lr-section lr-standards"
       id="standards"
       aria-labelledby="standards-heading"
     >

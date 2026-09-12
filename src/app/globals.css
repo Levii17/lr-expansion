@@ -549,7 +549,7 @@ a:focus-visible {
 
 .lr-statement {
   position: relative;
-  min-height: 340px;
+  min-height: 360px;
   display: flex;
   align-items: stretch;
   overflow: hidden;
@@ -561,16 +561,16 @@ a:focus-visible {
   position: relative;
   z-index: 1;
   width: min(calc(100% - 48px), var(--lr-max));
-  min-height: 340px;
+  min-height: 360px;
   margin: 0 auto;
-  padding: 58px 0 42px;
+  padding: 72px 0 56px;
 }
 
 .lr-statement-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.7fr);
   gap: clamp(28px, 5vw, 76px);
-  align-items: end;
+  align-items: center;
 }
 
 .lr-statement h2 {
@@ -851,7 +851,7 @@ a:focus-visible {
 
 .lr-phase-layout {
   display: block;
-  min-height: 380vh;
+  min-height: 380dvh;
 }
 
 .lr-method-journey {
@@ -1741,6 +1741,14 @@ a:focus-visible {
   margin-top: 24px;
 }
 
+.lr-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
 .lr-form-success {
   display: inline-flex;
   align-items: center;
@@ -1959,6 +1967,18 @@ a:focus-visible {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
+  .lr-section {
+    padding: 64px 0;
+  }
+  .lr-why {
+    padding: 64px 0 76px;
+  }
+  .lr-quote {
+    padding: 80px 0;
+  }
+  .lr-contact {
+    padding: 72px 0 64px;
+  }
   .lr-nav-links,
   .lr-nav-cta {
     display: none;
@@ -2038,7 +2058,7 @@ a:focus-visible {
   }
 
   .lr-phase-layout {
-    min-height: 240vh;
+    min-height: 240dvh;
   }
 
   .lr-phase-stage {
@@ -2096,35 +2116,36 @@ a:focus-visible {
   }
   .lr-statement,
   .lr-statement-inner {
-    min-height: 110px;
+    min-height: 0;
   }
   .lr-statement-inner {
     width: min(calc(100% - 34px), var(--lr-max));
-    padding: 58px 0 32px;
+    padding: 52px 0 40px;
   }
   .lr-statement-grid {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-    gap: 18px;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
   }
   .lr-statement h2 {
     max-width: none;
-    font-size: clamp(1rem, 5.5vw, 2.4rem);
-    line-height: 0.92;
+    font-size: clamp(2rem, 9.5vw, 2.6rem);
+    line-height: 1.04;
   }
   .lr-statement p {
     max-width: none;
     margin: 0;
-    padding-left: 12px;
-    border-left-width: 1px;
-    font-size: 12px;
+    padding-left: 14px;
+    border-left-width: 2px;
+    font-size: 13px;
     font-weight: 500;
-    line-height: 1.5;
+    line-height: 1.55;
   }
   .lr-statement-watermark {
-    top: 8px;
-    left: 12px;
-    font-size: clamp(8rem, 28vw, 13rem);
+    top: auto;
+    bottom: -0.12em;
+    left: -0.04em;
+    font-size: clamp(7rem, 34vw, 11rem);
   }
   .lr-project-tile.is-wide {
     grid-column: span 2;
@@ -2155,7 +2176,7 @@ a:focus-visible {
     height: min(460px, calc(100dvh - 96px));
   }
   .lr-phase-layout {
-    min-height: 190vh;
+    min-height: 190dvh;
   }
   .lr-phase-visual {
     min-height: 0;
@@ -2202,16 +2223,13 @@ a:focus-visible {
     align-items: flex-start;
     flex-direction: column;
   }
-  .lr-button {
-    width: 100%;
-  }
   .lr-footer-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
   }
   .lr-footer-content {
     min-height: 0;
-    padding-top: 56px;
+    padding-top: 48px;
     padding-left: 5vw;
     padding-right: 5vw;
   }
@@ -2221,31 +2239,31 @@ a:focus-visible {
     letter-spacing: -0.01em;
   }
   .lr-footer-grid {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-    gap: 28px 18px;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr) auto;
+    gap: 18px 8px;
     padding-bottom: 32px;
   }
   .lr-footer-heading-col {
     grid-column: 1 / -1;
   }
+  .lr-footer-social-col {
+    padding-top: 0;
+    border-top: 0;
+  }
   .lr-footer-col-label {
-    font-size: 0.55rem;
+    font-size: 0.6rem;
   }
   .lr-footer-links a,
   .lr-footer-contact-col a {
-    font-size: 10px;
-    gap: 4px;
-  }
-  .lr-footer-links a svg,
-  .lr-footer-contact-col a svg {
-    display: none;
+    font-size: 12px;
+    gap: 7px;
   }
   .lr-footer-socials {
-    gap: 6px;
+    gap: 4px;
   }
   .lr-footer-socials a {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
   }
 
   .lr-gallery-item {

@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="lr-footer">
       <div className="lr-footer-ticker lr-mono" aria-hidden="true">
-        {Array.from({ length: 3 }, (_, index) => (
+        {Array.from({ length: 10 }, (_, index) => (
           <span className="lr-footer-ticker-group" key={index}>
             <span>Plan</span>
             <i />
@@ -22,7 +22,6 @@ export default function Footer() {
             <span>Build</span>
             <i />
             <span>Deliver</span>
-            <i />
           </span>
         ))}
       </div>
@@ -81,7 +80,12 @@ export default function Footer() {
             © {new Date().getFullYear()} LR Expansion Group
           </span>
           <span className="lr-mono">
-            Build by <a href="https://mxolisi.is-a.dev/" target="_blank" rel="noopener noreferrer">
+            Build by{" "}
+            <a
+              href="https://mxolisi.is-a.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               mxolisi
             </a>
           </span>

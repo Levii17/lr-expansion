@@ -137,7 +137,7 @@ export default function Contact() {
               </span>
             )}
             <button className="lr-button" type="submit">
-              Start the conversation <ArrowUpRight size={16} />
+              Start the conversation <ArrowUpRight size={14} />
             </button>
           </div>
         </form>
